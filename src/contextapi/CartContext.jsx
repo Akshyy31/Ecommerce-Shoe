@@ -35,9 +35,10 @@ export const CartProvider = ({ children }) => {
         cart: newCart,
       });
     } catch (err) {
-      console.error("Error syncing cart:", err);
+      console.error("Error syncing cart from update backend:", err);
     }
   };
+
 
   // add to cart
   const addToCart = async (product, quantity = 1) => {
