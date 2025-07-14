@@ -35,7 +35,7 @@ export const AuthProvider = ({ children }) => {
         if (userData.isBlock) throw new Error("user is Blocked");
         setCurrentUser(userData);
         localStorage.setItem("userId", userData.id);
-        toast.success("Login Succesfully");
+        toast.success("Login Succesfully Compelted");
         return true;
       } else {
         toast.error("In-valid credentials");
