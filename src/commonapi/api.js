@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 export  const Api = axios.create({
-    baseURL:"https://json-serevr-shoe.onrender.com "
+    baseURL:"https://json-serevr-shoe.onrender.com"
 })
 
 
