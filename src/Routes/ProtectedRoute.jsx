@@ -4,11 +4,8 @@ import AuthContext from "../contextapi/AuthContext";
 
 const ProtectedRoute = ({ children, allowedRoles = [] }) => {
   
-  const { currentUser, loading } = useContext(AuthContext);
+  const { currentUser } = useContext(AuthContext);
 
-  if (loading) {
-    return <div className="text-center mt-20 text-gray-500">Restoring session...</div>;
-  }
 
 
   if (!currentUser) {
@@ -16,7 +13,6 @@ const ProtectedRoute = ({ children, allowedRoles = [] }) => {
   }
 
   if (allowedRoles.length > 0 && !allowedRoles.includes(currentUser.role)) {
-    // Redirect based on role
     return (
       <Navigate to={currentUser.role === "admin" ? "/admin/dashboard" : "/"} replace />
     );

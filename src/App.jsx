@@ -11,8 +11,11 @@ import Checkout from "./components/Checkout";
 import Order from "./components/Order";
 import Wishlist from "./Wishlist page/Wishlist";
 import ProtectedRoute from "./Routes/ProtectedRoute";
-import AdminDashboard from "./admin pages/AdminDashboard";
-import Products from "./admin pages/Products";
+import AdminLayout from "./admin pages/AdminLayout";
+import Dashboard from "./admin pages/Dashboard";
+import AdminProducts from "./admin pages/AdminProducts";
+import AdminOrders from "./admin pages/AdminOrders";
+import Users from "./admin pages/Users";
 
 
 function App() {
@@ -75,18 +78,12 @@ function App() {
         />
 
         {/* Admin Protected Routes */}
-        <Route
-          path="/admin/dashboard"
-          element={
-            <ProtectedRoute allowedRoles={["admin"]}>
-              <AdminDashboard />
-            </ProtectedRoute>
-          }
-        >
-         
-          <Route path="products" element={<Products />} />
-          {/* Add more nested routes here */}
-        </Route>
+       <Route path="/admin" element={<AdminLayout />}>
+        <Route path="dashboard" element={<Dashboard />} />
+        <Route path="users" element={<Users />} /> 
+        <Route path="products" element={<AdminProducts />} />
+        <Route path="orders" element={<AdminOrders/>} />
+      </Route>
       </Routes>
     </div>
   );

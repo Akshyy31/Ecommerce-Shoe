@@ -16,25 +16,25 @@ const Login = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { email, password } = formData;
 
     if (!email || !password) {
-      toast.error("Please fill both email and password.");
+      toast.error("Please fill both email and  password.");
       return;
     }
 
-    const user = await loginUser(email, password); //  Get user from context function
+    const user = await loginUser(email, password);  //    Get user from context function
+    console.log("user for admin ", user);
 
     if (user) {
-    if (user.role === "admin") {
-      navigate("/admin/dashboard", { replace: true });
-    } else {
-      navigate("/", { replace: true });
+      if (user.role === "admin") {
+        navigate("/admin/dashboard", { replace: true });
+      } else {
+        navigate("/", { replace: true });
+      }
     }
-  }
   };
 
   return (
@@ -71,7 +71,10 @@ const Login = () => {
             </div>
 
             <div>
-              <label htmlFor="password" className="block mb-1 font-medium text-sm ">
+              <label
+                htmlFor="password"
+                className="block mb-1 font-medium text-sm "
+              >
                 Password
               </label>
               <input
@@ -85,10 +88,9 @@ const Login = () => {
                 required
               />
             </div>
-
             <button
               type="submit"
-              className="w-full mt-5  bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition duration-300"
+              className="w-full mt-5 bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition duration-300"
             >
               Login
             </button>
@@ -96,7 +98,10 @@ const Login = () => {
 
           <p className="mt-4 text-center text-sm text-gray-600">
             Don't have an account?{" "}
-            <Link to="/register" className="text-black font-medium hover:underline">
+            <Link
+              to="/register"
+              className="text-black font-medium hover:underline"
+            >
               Register
             </Link>
           </p>
