@@ -95,7 +95,7 @@ function Navbar1() {
 
               <Link
                 to="/wishlist"
-                className="relative !text-black hover:text-indigo-600 p-3"
+                className="relative !text-black hover:text-indigo-600 m-3"
               >
                 <Heart size={24} />
                 {wishlistCount > 0 && (

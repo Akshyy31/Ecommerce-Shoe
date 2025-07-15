@@ -8,6 +8,7 @@ import Navbar1 from "../Navbar/Navbar1";
 import { toast, ToastContainer } from "react-toastify";
 import { FaHeart, FaHeartBroken } from "react-icons/fa";
 import Footer from "../components/Footer";
+import { Toaster } from "react-hot-toast";
 
 function ProductDetail() {
   const { id } = useParams();
@@ -64,6 +65,14 @@ function ProductDetail() {
 
   return (
     <div>
+      <Toaster
+              position="top-center"
+              toastOptions={{
+                style: {
+                  marginTop: "20px", // Optional: add space from top
+                },
+              }}
+            />
       <Navbar1 />
       <div className="container mx-auto p-4 min-h-screen">
         <ToastContainer />

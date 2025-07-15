@@ -16,7 +16,8 @@ const Login = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const { email, password } = formData;
 
@@ -25,8 +26,15 @@ const Login = () => {
       return;
     }
 
-    loginUser(email, password); // context login method with redirection
-    navigate('/')
+    const user = await loginUser(email, password); //  Get user from context function
+
+    if (user) {
+    if (user.role === "admin") {
+      navigate("/admin/dashboard", { replace: true });
+    } else {
+      navigate("/", { replace: true });
+    }
+  }
   };
 
   return (

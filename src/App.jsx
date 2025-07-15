@@ -9,26 +9,84 @@ import ProductDetail from "./products/ProductDetail";
 import Cart from "./Cart/Cart";
 import Checkout from "./components/Checkout";
 import Order from "./components/Order";
-import PrivateRoute from "./components/PrivateRoute";
 import Wishlist from "./Wishlist page/Wishlist";
-import CategoryPage from "./Home_page_Card/CategoryPage";
+import ProtectedRoute from "./Routes/ProtectedRoute";
+import AdminDashboard from "./admin pages/AdminDashboard";
+import Products from "./admin pages/Products";
+
 
 function App() {
   return (
     <div>
       <Routes>
+        {/* Public Routes */}
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/productlist" element={<ProductList />} />
-        <Route path="/product-detail/:id" element={<ProductDetail />} />
-        <Route path="/cartpage" element={<Cart />} />
-        <Route path="/check-out" element={<Checkout />} />
-        <Route path="/order-confirmation" element={<Order />} />
-        <Route path="/wishlist" element={<Wishlist />} />
 
-        {/* Other routes */}
-        {/* <Route path="/category/:categoryName" element={<CategoryPage />} /> */}
+        {/* User Protected Routes */}
+        <Route
+          path="/productlist"
+          element={
+            <ProtectedRoute allowedRoles={["user"]}>
+              <ProductList />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/product-detail/:id"
+          element={
+            <ProtectedRoute allowedRoles={["user"]}>
+              <ProductDetail />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/cartpage"
+          element={
+            <ProtectedRoute allowedRoles={["user"]}>
+              <Cart />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/check-out"
+          element={
+            <ProtectedRoute allowedRoles={["user"]}>
+              <Checkout />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/order-confirmation"
+          element={
+            <ProtectedRoute allowedRoles={["user"]}>
+              <Order />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/wishlist"
+          element={
+            <ProtectedRoute allowedRoles={["user"]}>
+              <Wishlist />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* Admin Protected Routes */}
+        <Route
+          path="/admin/dashboard"
+          element={
+            <ProtectedRoute allowedRoles={["admin"]}>
+              <AdminDashboard />
+            </ProtectedRoute>
+          }
+        >
+         
+          <Route path="products" element={<Products />} />
+          {/* Add more nested routes here */}
+        </Route>
       </Routes>
     </div>
   );

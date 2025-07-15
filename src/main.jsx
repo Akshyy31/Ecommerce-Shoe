@@ -9,10 +9,13 @@ import { CartProvider } from "./contextapi/CartContext.jsx";
 import { WishlistProvider } from "./contextapi/WishListContext.jsx";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ScrollToTop from "./components/ScrollToTop.jsx";
+import { Toaster } from 'react-hot-toast';
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
+    <ScrollToTop/>
       <AuthProvider>
         <CartProvider>
           <WishlistProvider>
