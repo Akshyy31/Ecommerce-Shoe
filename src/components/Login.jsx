@@ -30,8 +30,8 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
-      <div className="bg-white rounded-2xl shadow-xl flex max-w-4xl w-full overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4 p-5">
+      <div className="bg-white rounded-2xl shadow-xl flex max-w-4xl w-full overflow-hidden ">
         {/* Left Side Image */}
         <div className="hidden md:block w-1/2">
           <img
@@ -42,12 +42,12 @@ const Login = () => {
         </div>
 
         {/* Right Side Form */}
-        <div className="w-full md:w-1/2 p-8">
+        <div className="w-full md:w-1/2 p-5">
           <h2 className="text-2xl font-semibold text-center mb-6">Login</h2>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label htmlFor="email" className="block mb-1 font-medium text-sm">
+              <label htmlFor="email" className="block mb-1 font-medium text-sm p-2">
                 Email
               </label>
               <input
@@ -63,7 +63,7 @@ const Login = () => {
             </div>
 
             <div>
-              <label htmlFor="password" className="block mb-1 font-medium text-sm">
+              <label htmlFor="password" className="block mb-1 font-medium text-sm p-2">
                 Password
               </label>
               <input
@@ -72,7 +72,7 @@ const Login = () => {
                 type="password"
                 value={formData.password}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+                className="w-full px-4 py-2  border rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
                 placeholder="Enter your password"
                 required
               />
@@ -80,7 +80,7 @@ const Login = () => {
 
             <button
               type="submit"
-              className="w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition duration-300"
+              className="w-full mt-5  bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition duration-300"
             >
               Login
             </button>
