@@ -1,12 +1,50 @@
 {
   "users": [
     {
+      "id": "ad12",
+      "username": "admin",
+      "email": "admin@gmail.com",
+      "password": "admin@123",
+      "role": "admin"
+    },
+    {
       "id": "d6ac",
       "username": "Akshay",
       "email": "akshayshaji688@gmail.com",
       "password": "akshay@123",
       "role": "user",
-      "cart": [],
+      "cart": [
+        {
+          "id": "7",
+          "name": "Galaxis Pro",
+          "image": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_750,h_750/global/311767/02/sv01/fnd/IND/fmt/png/Galaxis-Pro-Men's-Performance-Boost-Running-Shoes",
+          "image1": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_750,h_750/global/311767/02/fnd/IND/fmt/png/Galaxis-Pro-Men's-Performance-Boost-Running-Shoes",
+          "image2": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_750,h_750/global/311767/02/sv04/fnd/IND/fmt/png/Galaxis-Pro-Men's-Performance-Boost-Running-Shoes",
+          "image3": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_750,h_750/global/311767/02/sv02/fnd/IND/fmt/png/Galaxis-Pro-Men's-Performance-Boost-Running-Shoes",
+          "price": 8295,
+          "category": "Men",
+          "description": "Galaxis Pro Men's Performance Boost Running Shoes",
+          "stock": 8,
+          "quantity": 2,
+          "isNew": "",
+          "brand": "Puma"
+        },
+        {
+          "id": "4",
+          "name": "Nike Air Max Plus",
+          "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/87a2bcdf-c846-4747-a3dd-7b5401bc1ca3/NIKE+AIR+MAX+PLUS.png",
+          "image1": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/9ff11d83-d063-4bb9-81ed-0bf524126cd9/NIKE+AIR+MAX+PLUS.png",
+          "image2": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c163b6d4-a9b0-43d3-82ed-845acf46f1e4/NIKE+AIR+MAX+PLUS.png",
+          "image3": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b333b646-2206-4ce7-9eb3-8854c562f05f/NIKE+AIR+MAX+PLUS.png",
+          "price": 8295,
+          "category": "Men",
+          "description": "Sustainable Materials Nike Dunk Low Next Nature",
+          "stock": 8,
+          "quantity": 1,
+          "isNew": "",
+          "brand": "Nike"
+        }
+      ],
       "wishlist": [],
       "orders": [
         {
@@ -27,291 +65,11 @@
               "quantity": 4,
               "isNew": "new",
               "brand": "Nike"
-            },
-            {
-              "id": "1",
-              "name": "Nike SB",
-              "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/9f9fe870-473f-4eab-bd5f-b3f89735556c/NIKE+SB+DUNK+LOW+PRO.png",
-              "image1": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b597e2af-441b-4877-aa94-d086f65e22f4/NIKE+SB+DUNK+LOW+PRO.png",
-              "image2": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/1f6419a7-087e-40e0-89cf-86a7f3dbef06/NIKE+SB+DUNK+LOW+PRO.png",
-              "image3": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a2db8c5d-932c-4464-91f3-f6aca7ecec79/NIKE+SB+DUNK+LOW+PRO.png",
-              "price": 9590,
-              "category": "Men",
-              "description": "Nike SB Dunk Low Pro Skate Shoe",
-              "stock": 1,
-              "quantity": 1,
-              "isNew": "new",
-              "brand": "Nike"
             }
           ],
           "total": 41190
-        },
-        {
-          "id": 1752238547033,
-          "date": "7/11/2025, 6:25:47 PM",
-          "items": [
-            {
-              "id": "3",
-              "name": "Nike Dunk NextNature",
-              "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a5f788d9-208d-47f5-a90a-6e331cd6acbf/W+NIKE+DUNK+LOW+NEXT+NATURE.png",
-              "image1": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b7749f8a-2e8f-41d4-bc87-577555eb6b49/W+NIKE+DUNK+LOW+NEXT+NATURE.png",
-              "image2": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c9f111a3-7b98-439c-b607-3213daf3feac/W+NIKE+DUNK+LOW+NEXT+NATURE.png",
-              "image3": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/143c3087-0f60-48d7-8d07-5655e62fc72b/W+NIKE+DUNK+LOW+NEXT+NATURE.png",
-              "price": 8295,
-              "category": "Women",
-              "description": "Sustainable Materials Nike Dunk Low Next Nature",
-              "stock": 8,
-              "quantity": 1,
-              "isNew": "new",
-              "brand": "Nike"
-            }
-          ],
-          "total": 8295
-        },
-        {
-          "id": 1752238604333,
-          "date": "7/11/2025, 6:26:44 PM",
-          "items": [
-            {
-              "id": "3",
-              "name": "Nike Dunk NextNature",
-              "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a5f788d9-208d-47f5-a90a-6e331cd6acbf/W+NIKE+DUNK+LOW+NEXT+NATURE.png",
-              "image1": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b7749f8a-2e8f-41d4-bc87-577555eb6b49/W+NIKE+DUNK+LOW+NEXT+NATURE.png",
-              "image2": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c9f111a3-7b98-439c-b607-3213daf3feac/W+NIKE+DUNK+LOW+NEXT+NATURE.png",
-              "image3": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/143c3087-0f60-48d7-8d07-5655e62fc72b/W+NIKE+DUNK+LOW+NEXT+NATURE.png",
-              "price": 8295,
-              "category": "Women",
-              "description": "Sustainable Materials Nike Dunk Low Next Nature",
-              "stock": 8,
-              "quantity": 1,
-              "isNew": "new",
-              "brand": "Nike"
-            }
-          ],
-          "total": 8295
-        },
-        {
-          "id": 1752239005725,
-          "date": "7/11/2025, 6:33:25 PM",
-          "items": [
-            {
-              "id": "8",
-              "name": "BMW M Motorsport",
-              "image": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_750,h_750/global/308960/01/sv01/fnd/IND/fmt/png/BMW-M-Motorsport-Electron-E-Pro-Sneakers",
-              "image1": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_750,h_750/global/308960/01/bv/fnd/IND/fmt/png/BMW-M-Motorsport-Electron-E-Pro-Sneakers",
-              "image2": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_750,h_750/global/308960/01/sv02/fnd/IND/fmt/png/BMW-M-Motorsport-Electron-E-Pro-Sneakers",
-              "image3": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_750,h_750/global/308960/01/sv04/fnd/IND/fmt/png/BMW-M-Motorsport-Electron-E-Pro-Sneakers",
-              "price": 4899,
-              "category": "Men",
-              "description": "Motorsport enthusiasts, meet your new favorite kicks. With a shock-absorbing heel plug-in and SoftFoam+ sockliner, every step",
-              "stock": 1,
-              "quantity": 1,
-              "isNew": "New",
-              "brand": "Nike"
-            }
-          ],
-          "total": 4899
-        },
-        {
-          "id": 1752460857098,
-          "date": "7/14/2025, 8:10:57 AM",
-          "items": [
-            {
-              "id": "3",
-              "name": "Nike Dunk NextNature",
-              "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a5f788d9-208d-47f5-a90a-6e331cd6acbf/W+NIKE+DUNK+LOW+NEXT+NATURE.png",
-              "image1": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b7749f8a-2e8f-41d4-bc87-577555eb6b49/W+NIKE+DUNK+LOW+NEXT+NATURE.png",
-              "image2": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c9f111a3-7b98-439c-b607-3213daf3feac/W+NIKE+DUNK+LOW+NEXT+NATURE.png",
-              "image3": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/143c3087-0f60-48d7-8d07-5655e62fc72b/W+NIKE+DUNK+LOW+NEXT+NATURE.png",
-              "price": 8295,
-              "category": "Women",
-              "description": "Sustainable Materials Nike Dunk Low Next Nature",
-              "stock": 8,
-              "quantity": 5,
-              "isNew": "new",
-              "brand": "Nike"
-            },
-            {
-              "id": "8",
-              "name": "BMW M Motorsport",
-              "image": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_750,h_750/global/308960/01/sv01/fnd/IND/fmt/png/BMW-M-Motorsport-Electron-E-Pro-Sneakers",
-              "image1": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_750,h_750/global/308960/01/bv/fnd/IND/fmt/png/BMW-M-Motorsport-Electron-E-Pro-Sneakers",
-              "image2": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_750,h_750/global/308960/01/sv02/fnd/IND/fmt/png/BMW-M-Motorsport-Electron-E-Pro-Sneakers",
-              "image3": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_750,h_750/global/308960/01/sv04/fnd/IND/fmt/png/BMW-M-Motorsport-Electron-E-Pro-Sneakers",
-              "price": 4899,
-              "category": "Men",
-              "description": "Motorsport enthusiasts, meet your new favorite kicks. With a shock-absorbing heel plug-in and SoftFoam+ sockliner, every step",
-              "stock": 1,
-              "quantity": 1,
-              "isNew": "New",
-              "brand": "Nike"
-            }
-          ],
-          "total": 46374
-        },
-        {
-          "id": 1752474449361,
-          "date": "7/14/2025, 11:57:29 AM",
-          "items": [
-            {
-              "id": "2",
-              "name": "Nike Dunk Low Retro",
-              "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/2990f85d-8844-4e5b-a222-31ed53a5a9d4/NIKE+DUNK+LOW+RETRO.png",
-              "image1": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/2990f85d-8844-4e5b-a222-31ed53a5a9d4/NIKE+DUNK+LOW+RETRO.png",
-              "image2": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/2990f85d-8844-4e5b-a222-31ed53a5a9d4/NIKE+DUNK+LOW+RETRO.png",
-              "image3": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/2990f85d-8844-4e5b-a222-31ed53a5a9d4/NIKE+DUNK+LOW+RETRO.png",
-              "price": 7900,
-              "category": "Men",
-              "description": "High-Quality Formal shoe for men",
-              "stock": 8,
-              "quantity": 1,
-              "isNew": "new",
-              "brand": "Nike"
-            }
-          ],
-          "total": 7900
-        },
-        {
-          "id": 1752489245529,
-          "date": "7/14/2025, 4:04:05 PM",
-          "items": [
-            {
-              "id": "4",
-              "name": "Nike Air Max Plus",
-              "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/87a2bcdf-c846-4747-a3dd-7b5401bc1ca3/NIKE+AIR+MAX+PLUS.png",
-              "image1": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/9ff11d83-d063-4bb9-81ed-0bf524126cd9/NIKE+AIR+MAX+PLUS.png",
-              "image2": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c163b6d4-a9b0-43d3-82ed-845acf46f1e4/NIKE+AIR+MAX+PLUS.png",
-              "image3": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b333b646-2206-4ce7-9eb3-8854c562f05f/NIKE+AIR+MAX+PLUS.png",
-              "price": 8295,
-              "category": "Men",
-              "description": "Sustainable Materials Nike Dunk Low Next Nature",
-              "stock": 8,
-              "quantity": 3,
-              "isNew": "",
-              "brand": "Nike"
-            }
-          ],
-          "total": 24885
         }
       ]
-    },
-    {
-      "id": "5f96",
-      "username": "Arjun",
-      "email": "arjun@gmail.com",
-      "password": "arjun@gmail.com",
-      "role": "user",
-      "cart": [
-        {
-          "id": "1",
-          "name": "Nike SB",
-          "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/9f9fe870-473f-4eab-bd5f-b3f89735556c/NIKE+SB+DUNK+LOW+PRO.png",
-          "image1": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b597e2af-441b-4877-aa94-d086f65e22f4/NIKE+SB+DUNK+LOW+PRO.png",
-          "image2": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/1f6419a7-087e-40e0-89cf-86a7f3dbef06/NIKE+SB+DUNK+LOW+PRO.png",
-          "image3": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a2db8c5d-932c-4464-91f3-f6aca7ecec79/NIKE+SB+DUNK+LOW+PRO.png",
-          "price": 9590,
-          "category": "Men",
-          "description": "Nike SB Dunk Low Pro Skate Shoe",
-          "stock": 1,
-          "quantity": 1,
-          "isNew": "new",
-          "brand": "Nike"
-        }
-      ],
-      "orders": [
-        {
-          "id": 1752071577629,
-          "date": "7/9/2025, 8:02:57 PM",
-          "status": "pending",
-          "items": [
-            {
-              "id": "15",
-              "name": "Nike Blazer Mid '77",
-              "image": "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/edde6171-407b-42fc-b680-858e87462337/custom-nike-blazer-mid-77-shoes-by-you.png",
-              "image1": "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/20794f43-e9e0-4daf-a202-8a56d7ddb20f/custom-nike-blazer-mid-77-shoes-by-you.png",
-              "image2": "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/452c3e0e-63b8-4c18-b89b-24b8e1d892cf/custom-nike-blazer-mid-77-shoes-by-you.png",
-              "image3": "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/73ee36d7-4abe-4ac5-9868-6f26f2029adf/custom-nike-blazer-mid-77-shoes-by-you.png",
-              "price": 8295,
-              "category": "Women",
-              "description": "When you want sneakers that match your radiant energy, why not design your own? Show the world who you are in an array of fun materials and elevated hardware.",
-              "stock": 8,
-              "quantity": 3,
-              "isNew": "",
-              "brand": "Nike"
-            }
-          ],
-          "total": 24885
-        }
-      ]
-    },
-    {
-      "id": "db69",
-      "username": "sharmila01",
-      "email": "sharmila@gmail.com",
-      "password": "sharmila@gmail.com",
-      "role": "user",
-      "wishlist": [],
-      "cart": [
-        {
-          "id": "4",
-          "name": "Nike Air Max Plus",
-          "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/87a2bcdf-c846-4747-a3dd-7b5401bc1ca3/NIKE+AIR+MAX+PLUS.png",
-          "image1": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/9ff11d83-d063-4bb9-81ed-0bf524126cd9/NIKE+AIR+MAX+PLUS.png",
-          "image2": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c163b6d4-a9b0-43d3-82ed-845acf46f1e4/NIKE+AIR+MAX+PLUS.png",
-          "image3": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b333b646-2206-4ce7-9eb3-8854c562f05f/NIKE+AIR+MAX+PLUS.png",
-          "price": 8295,
-          "category": "Men",
-          "description": "Sustainable Materials Nike Dunk Low Next Nature",
-          "stock": 8,
-          "quantity": 3,
-          "isNew": "",
-          "brand": "Nike"
-        }
-      ]
-    },
-    {
-      "id": "5554",
-      "username": "ashfaq",
-      "email": "ashfaq@gmail.com",
-      "password": "ashfaq@gmail.com",
-      "role": "user",
-      "cart": [],
-      "wishlist": []
-    },
-    {
-      "id": "eba7",
-      "username": "shyam",
-      "email": "shyam@gmail.com",
-      "password": "shyam@gmail.com",
-      "role": "user"
-    },
-    {
-      "id": "e623",
-      "username": "sreya",
-      "email": "sreya@gmail.com",
-      "password": "sreya@123",
-      "role": "user"
-    },
-    {
-      "id": "b422",
-      "username": "sharmila01",
-      "email": "sharmila@gmailcom23",
-      "password": "12345678",
-      "role": "user"
-    },
-    {
-      "id": "92cf",
-      "username": "Akshay",
-      "email": "147896@gmailcom",
-      "password": "987654321",
-      "role": "user"
-    },
-    {
-      "id": "6fe9",
-      "username": "akshay",
-      "email": "12@gmail",
-      "password": "123456789",
-      "role": "user"
     }
   ],
   "products": [

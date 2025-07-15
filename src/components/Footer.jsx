@@ -21,24 +21,24 @@ const Footer = () => {
           <div className="md:mr-8">
             <h3 className="text-lg font-semibold mb-2">Customer Service</h3>
             <ul className="space-y-2">
-              <li><a href="/returns" className="hover:text-gray-400  text-white">Returns & Exchanges</a></li>
-              <li><a href="/shipping" className="hover:text-gray-400  text-white">Shipping Info</a></li>
-              <li><a href="/faq" className="hover:text-gray-400  text-white">FAQ</a></li>
-              <li><a href="/support" className="hover:text-gray-400  text-white">Support</a></li>
+              <li><a href="/returns" className="hover:text-gray-400 p-2  text-white">Returns & Exchanges</a></li>
+              <li><a href="/shipping" className="hover:text-gray-400 p-2  text-white">Shipping Info</a></li>
+              <li><a href="/faq" className="hover:text-gray-400  p-2 text-white">FAQ</a></li>
+              <li><a href="/support" className="hover:text-gray-400 p-2  text-white">Support</a></li>
             </ul>
           </div>
         </div>
-        <div className="flex space-x-4">
-          <a href="https://facebook.com" aria-label="Facebook" className="  text-white hover:text-white">
+        <div className="flex space-x-4 ">
+          <a href="https://facebook.com" aria-label="Facebook" className=" p-2 text-white hover:text-white">
             <FaFacebook size={24} />
           </a>
-          <a href="https://twitter.com" aria-label="Twitter" className=" text-white hover:text-white">
+          <a href="https://twitter.com" aria-label="Twitter" className="p-2 text-white hover:text-white">
             <FaTwitter size={24} />
           </a>
-          <a href="https://instagram.com" aria-label="Instagram" className=" text-white hover:text-white">
+          <a href="https://instagram.com" aria-label="Instagram" className="p-2 text-white hover:text-white">
             <FaInstagram size={24} />
           </a>
-          <a href="https://linkedin.com" aria-label="LinkedIn" className=" text-white hover:text-white">
+          <a href="https://linkedin.com" aria-label="LinkedIn" className="p-2 text-white hover:text-white">
             <FaLinkedin size={24} />
           </a>
         </div>

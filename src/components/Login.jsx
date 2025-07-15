@@ -1,19 +1,11 @@
-import { Row, Col, Form } from "react-bootstrap";
 import { useState, useContext } from "react";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
-import { Link } from "react-router-dom";
-import { User, X } from "lucide-react";
+import { useNavigate, Link } from "react-router-dom";
 import AuthContext from "../contextapi/AuthContext";
 import { toast } from "react-toastify";
 
-function Login({ show, handleClose, hideIcon = false }) {
-
-  const [internalShow, setInternalShow] = useState(false);
-  const modalVisible = show !== undefined ? show : internalShow;
+const Login = () => {
+  const navigate = useNavigate();
   const { loginUser } = useContext(AuthContext);
-
-
 
   const [formData, setFormData] = useState({
     email: "",
@@ -27,104 +19,83 @@ function Login({ show, handleClose, hideIcon = false }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const { email, password } = formData;
+
     if (!email || !password) {
       toast.error("Please fill both email and password.");
       return;
-    } else {
-      loginUser(email,password);
     }
 
-    if (handleClose) {
-      handleClose();
-    } else {
-      setInternalShow(false);
-    }
-  };
-
-  const closeModal = () => {
-    if (handleClose) {
-      handleClose();
-    } else {
-      setInternalShow(false);
-    }
+    loginUser(email, password); // context login method with redirection
+    navigate('/')
   };
 
   return (
-    <>
-      {!hideIcon && (
-        <button
-          className="text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium flex items-center"
-          onClick={() => setInternalShow(true)}
-        >
-          <User size={24} color="black" />
-        </button>
-      )}
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+      <div className="bg-white rounded-2xl shadow-xl flex max-w-4xl w-full overflow-hidden">
+        {/* Left Side Image */}
+        <div className="hidden md:block w-1/2">
+          <img
+            src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?fm=jpg&q=60&w=1000"
+            alt="login"
+            className="h-full w-full object-cover"
+          />
+        </div>
 
-      <Modal
-        show={modalVisible}
-        onHide={closeModal}
-        centered
-        size="lg"
-        backdrop="static"
-      >
-        <Modal.Body className="p-0">
-          <Row className="g-0" style={{ height: "470px" }}>
-            {/* Left Image */}
-            <Col md={6} className="d-none d-md-block">
-              <img
-                src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?fm=jpg&q=60&w=1000"
-                alt="login"
-                className="img-fluid h-100 w-100"
-                style={{ objectFit: "cover", height: "400px" }}
+        {/* Right Side Form */}
+        <div className="w-full md:w-1/2 p-8">
+          <h2 className="text-2xl font-semibold text-center mb-6">Login</h2>
+
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div>
+              <label htmlFor="email" className="block mb-1 font-medium text-sm">
+                Email
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+                placeholder="Enter your email"
+                required
               />
-            </Col>
+            </div>
 
-            {/* Right Form */}
-            <Col xs={12} md={6} className="p-4">
-              <div className="flex justify-between items-center mb-4">
-                <h3 className="mb-0">Login</h3>
-                <span className="cursor-pointer" onClick={closeModal}>
-                  <X />
-                </span>
-              </div>
+            <div>
+              <label htmlFor="password" className="block mb-1 font-medium text-sm">
+                Password
+              </label>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                value={formData.password}
+                onChange={handleChange}
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+                placeholder="Enter your password"
+                required
+              />
+            </div>
 
-              <Form onSubmit={handleSubmit}>
-                <Form.Group className="mb-3" controlId="formEmail">
-                  <Form.Label>Email</Form.Label>
-                  <Form.Control
-                    type="email"
-                    name="email"
-                    placeholder="Enter email"
-                    value={formData.email}
-                    onChange={handleChange}
-                  />
-                </Form.Group>
+            <button
+              type="submit"
+              className="w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition duration-300"
+            >
+              Login
+            </button>
+          </form>
 
-                <Form.Group className="mb-3" controlId="formPassword">
-                  <Form.Label>Password</Form.Label>
-                  <Form.Control
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    value={formData.password}
-                    onChange={handleChange}
-                  />
-                </Form.Group>
-
-                <Button variant="dark" type="submit" className="w-100 mb-3">
-                  Login
-                </Button>
-
-                <p className="text-center">
-                  Don't have an account? <Link to="/register">Register</Link>
-                </p>
-              </Form>
-            </Col>
-          </Row>
-        </Modal.Body>
-      </Modal>
-    </>
+          <p className="mt-4 text-center text-sm text-gray-600">
+            Don't have an account?{" "}
+            <Link to="/register" className="text-black font-medium hover:underline">
+              Register
+            </Link>
+          </p>
+        </div>
+      </div>
+    </div>
   );
-}
+};
 
 export default Login;
