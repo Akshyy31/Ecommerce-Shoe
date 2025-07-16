@@ -23,6 +23,7 @@ const Register = () => {
       email: "",
       password: "",
       role: "user",
+      blocked:false
     },
     validationSchema,
     onSubmit: (values) => {

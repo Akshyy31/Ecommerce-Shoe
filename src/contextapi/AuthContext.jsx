@@ -34,14 +34,14 @@ export const AuthProvider = ({ children }) => {
 
     if (res.data.length === 0) {
       toast.error("Invalid credentials");
-      return false;
+      return ;
     }
 
     const userData = res.data[0];
 
-    if (userData.isBlock) {
+    if (userData.blocked) {
       toast.error("Your account is blocked. Please contact support.");
-      return false;
+      return ;
     }
 
     setCurrentUser(userData);
@@ -52,7 +52,7 @@ export const AuthProvider = ({ children }) => {
   } catch (error) {
     console.error("Login error:", error);
     toast.error("Login failed. Please try again.");
-    return false;
+    return ;
   }
 };
 

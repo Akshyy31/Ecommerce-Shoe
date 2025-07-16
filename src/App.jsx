@@ -16,7 +16,7 @@ import Dashboard from "./admin pages/Dashboard";
 import AdminProducts from "./admin pages/AdminProducts";
 import AdminOrders from "./admin pages/AdminOrders";
 import Users from "./admin pages/Users";
-
+import Userdetails from "./admin pages/Userdetails";
 
 function App() {
   return (
@@ -78,12 +78,13 @@ function App() {
         />
 
         {/* Admin Protected Routes */}
-       <Route path="/admin" element={<AdminLayout />}>
-        <Route path="dashboard" element={<Dashboard />} />
-        <Route path="users" element={<Users />} /> 
-        <Route path="products" element={<AdminProducts />} />
-        <Route path="orders" element={<AdminOrders/>} />
-      </Route>
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="users" element={<Users />} />
+          <Route path="products" element={<AdminProducts />} />
+          <Route path="orders" element={<AdminOrders />} />
+          <Route path="users/:id" element={<Userdetails />} />
+        </Route>
       </Routes>
     </div>
   );

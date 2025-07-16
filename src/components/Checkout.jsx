@@ -28,6 +28,7 @@ const Checkout = () => {
         date: new Date().toLocaleString(),
         items: cart,
         total: getTotalAmount(),
+        status:"pending"
       };
 
       const updatedOrders = [...(user.orders || []), newOrder];

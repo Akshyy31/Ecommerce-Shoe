@@ -14,47 +14,75 @@
       "password": "akshay@123",
       "role": "user",
       "cart": [],
-      "wishlist": [
-        {
-          "id": "1",
-          "name": "Nike SB",
-          "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/9f9fe870-473f-4eab-bd5f-b3f89735556c/NIKE+SB+DUNK+LOW+PRO.png",
-          "image1": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b597e2af-441b-4877-aa94-d086f65e22f4/NIKE+SB+DUNK+LOW+PRO.png",
-          "image2": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/1f6419a7-087e-40e0-89cf-86a7f3dbef06/NIKE+SB+DUNK+LOW+PRO.png",
-          "image3": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a2db8c5d-932c-4464-91f3-f6aca7ecec79/NIKE+SB+DUNK+LOW+PRO.png",
-          "price": 9590,
-          "category": "Men",
-          "description": "Nike SB Dunk Low Pro Skate Shoe",
-          "stock": 1,
-          "quantity": 1,
-          "isNew": "new",
-          "brand": "Nike"
-        }
-      ],
       "orders": [
         {
-          "id": 1752154618912,
-          "date": "7/10/2025, 7:06:58 PM",
+          "id": 1752642822101,
+          "date": "7/16/2025, 10:43:42 AM",
           "items": [
             {
-              "id": "2",
-              "name": "Nike Dunk Low Retro",
-              "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/2990f85d-8844-4e5b-a222-31ed53a5a9d4/NIKE+DUNK+LOW+RETRO.png",
-              "image1": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/2990f85d-8844-4e5b-a222-31ed53a5a9d4/NIKE+DUNK+LOW+RETRO.png",
-              "image2": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/2990f85d-8844-4e5b-a222-31ed53a5a9d4/NIKE+DUNK+LOW+RETRO.png",
-              "image3": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/2990f85d-8844-4e5b-a222-31ed53a5a9d4/NIKE+DUNK+LOW+RETRO.png",
-              "price": 7900,
-              "category": "Men",
-              "description": "High-Quality Formal shoe for men",
+              "id": "3",
+              "name": "Nike Dunk NextNature",
+              "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a5f788d9-208d-47f5-a90a-6e331cd6acbf/W+NIKE+DUNK+LOW+NEXT+NATURE.png",
+              "image1": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b7749f8a-2e8f-41d4-bc87-577555eb6b49/W+NIKE+DUNK+LOW+NEXT+NATURE.png",
+              "image2": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c9f111a3-7b98-439c-b607-3213daf3feac/W+NIKE+DUNK+LOW+NEXT+NATURE.png",
+              "image3": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/143c3087-0f60-48d7-8d07-5655e62fc72b/W+NIKE+DUNK+LOW+NEXT+NATURE.png",
+              "price": 8295,
+              "category": "Women",
+              "description": "Sustainable Materials Nike Dunk Low Next Nature",
               "stock": 8,
-              "quantity": 4,
+              "quantity": 1,
               "isNew": "new",
               "brand": "Nike"
             }
           ],
-          "total": 41190
+          "total": 8295,
+          "status": "pending"
         }
-      ]
+      ],
+      "blocked": false,
+      "wishlist": []
+    },
+    {
+      "id": "54c0",
+      "username": "sharmila01",
+      "email": "sharmila@gmail.com",
+      "password": "sharmila@gmail.com",
+      "role": "user",
+      "cart": [],
+      "orders": [
+        {
+          "id": 1752642947719,
+          "date": "7/16/2025, 10:45:47 AM",
+          "items": [
+            {
+              "id": "10",
+              "name": "Suede Classic Sneakers",
+              "image": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_750,h_750/global/399781/04/sv01/fnd/IND/fmt/png/Suede-Classic-Sneakers",
+              "image1": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_750,h_750/global/399781/04/mod01/fnd/IND/fmt/png/Suede-Classic-Sneakers",
+              "image2": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_750,h_750/global/399781/04/sv02/fnd/IND/fmt/png/Suede-Classic-Sneakers",
+              "image3": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_750,h_750/global/399781/04/sv04/fnd/IND/fmt/png/Suede-Classic-Sneakers",
+              "price": 5599,
+              "category": "Women",
+              "description": "The Suede hit the scene in 1968 and has been changing the game ever since. It's been worn by icons of every generation, and it's",
+              "stock": 8,
+              "quantity": 1,
+              "isNew": "",
+              "brand": "Puma"
+            }
+          ],
+          "total": 5599,
+          "status": "delivered"
+        }
+      ],
+      "blocked": false
+    },
+    {
+      "id": "3f32",
+      "username": "samadev07",
+      "email": "samadev@gmail.com",
+      "password": "samadev@gmail.com",
+      "role": "user",
+      "blocked": false
     }
   ],
   "products": [
@@ -68,7 +96,7 @@
       "price": 9590,
       "category": "Men",
       "description": "Nike SB Dunk Low Pro Skate Shoe",
-      "stock": 1,
+      "stock": "Available",
       "quantity": 1,
       "isNew": "new",
       "brand": "Nike"
@@ -83,7 +111,7 @@
       "price": 7900,
       "category": "Men",
       "description": "High-Quality Formal shoe for men",
-      "stock": 8,
+      "stock": "Available",
       "quantity": 1,
       "isNew": "new",
       "brand": "Nike"
@@ -98,7 +126,7 @@
       "price": 8295,
       "category": "Women",
       "description": "Sustainable Materials Nike Dunk Low Next Nature",
-      "stock": 8,
+      "stock": "Available",
       "quantity": 1,
       "isNew": "new",
       "brand": "Nike"
@@ -113,7 +141,7 @@
       "price": 8295,
       "category": "Men",
       "description": "Sustainable Materials Nike Dunk Low Next Nature",
-      "stock": 8,
+      "stock": "Available",
       "quantity": 1,
       "isNew": "",
       "brand": "Nike"
@@ -128,7 +156,7 @@
       "price": 2295,
       "category": "Women",
       "description": "VERSATILERUNNING SHOES WITH A DASH OF STYLE",
-      "stock": 8,
+      "stock": "Available",
       "quantity": 1,
       "isNew": "",
       "brand": "Nike"
@@ -143,7 +171,7 @@
       "price": 2875,
       "category": "Women",
       "description": "Powerlish W Colour: Purple Burst / Preloved Purple / Light Bone / Off White",
-      "stock": 8,
+      "stock": "Available",
       "quantity": 1,
       "isNew": "",
       "brand": "Nike"
@@ -158,7 +186,7 @@
       "price": 8295,
       "category": "Men",
       "description": "Galaxis Pro Men's Performance Boost Running Shoes",
-      "stock": 8,
+      "stock": "Available",
       "quantity": 1,
       "isNew": "",
       "brand": "Puma"
@@ -173,7 +201,7 @@
       "price": 4899,
       "category": "Men",
       "description": "Motorsport enthusiasts, meet your new favorite kicks. With a shock-absorbing heel plug-in and SoftFoam+ sockliner, every step",
-      "stock": 1,
+      "stock": "Available",
       "quantity": 1,
       "isNew": "New",
       "brand": "Nike"
@@ -188,7 +216,7 @@
       "price": 8990,
       "category": "Men",
       "description": "Inspired by the original that debuted in 1985, the Air Jordan 1 Low offers a clean, classic look that's familiar yet always fresh.",
-      "stock": 1,
+      "stock": "Available",
       "quantity": 1,
       "isNew": "",
       "brand": "Nike"
@@ -203,7 +231,7 @@
       "price": 5599,
       "category": "Women",
       "description": "The Suede hit the scene in 1968 and has been changing the game ever since. It's been worn by icons of every generation, and it's",
-      "stock": 8,
+      "stock": "Available",
       "quantity": 1,
       "isNew": "",
       "brand": "Puma"
@@ -218,7 +246,7 @@
       "price": 11999,
       "category": "Women",
       "description": "Experience ultimate comfort in full action with Skechers Hands Free Slip-ins®: Max Cushioning® Glide-Step® - Advert. Designed with our exclusive Heel Pillow™, this slip-on performance design features an engineered mesh",
-      "stock": 8,
+      "stock": "Available",
       "quantity": 1,
       "isNew": "",
       "brand": "Skechers"
@@ -233,7 +261,7 @@
       "price": 7499,
       "category": "Men",
       "description": "Vintage vibes meets modern comfort in Skechers Street™ Upper Cut Neo Jogger - Lantis. This lace-up Skechers throwback jogger features a leather and mesh upper with an S logo at the quarter and a cushioned Skechers Air-Cooled Memory Foam® insole.",
-      "stock": 8,
+      "stock": "Available",
       "quantity": 1,
       "isNew": "",
       "brand": "Skechers"
@@ -248,7 +276,7 @@
       "price": 5995,
       "category": "Kids",
       "description": "Start your little one's sneaker collection off with an icon. Designed for basketball but adopted by skaters, the Nike Dunk Low helped define sneakerhead culture. With plush ankle padding and durable rubber traction, this '80s icon is an easy win for playtime and beyond.",
-      "stock": 0,
+      "stock": "Available",
       "quantity": 1,
       "isNew": "",
       "brand": "Nike"
@@ -263,7 +291,7 @@
       "price": 17999,
       "category": "Men",
       "description": "Push the boundaries of long-distance comfort with the MagMax NITRO. Designed for runners who demand plush cushioning and lasting support, this high-stack shoe features our softest NITROFOAM™ yet—engineered for performance and endurance with a lightweight, breathable mesh upper and enhanced traction for every surface.",
-      "stock": 8,
+      "stock": "Available",
       "quantity": 1,
       "isNew": "New",
       "brand": "Nike"
@@ -278,10 +306,25 @@
       "price": 8295,
       "category": "Women",
       "description": "When you want sneakers that match your radiant energy, why not design your own? Show the world who you are in an array of fun materials and elevated hardware.",
-      "stock": 8,
+      "stock": "Available",
       "quantity": 1,
       "isNew": "",
       "brand": "Nike"
+    },
+    {
+      "id": "a467",
+      "name": "Samba",
+      "brand": "Adidas",
+      "category": "Women",
+      "price": 5000,
+      "stock": "Available",
+      "description": "Born on the pitch, the Samba is a timeless icon of street style. This silhouette stays true to its legacy with a tasteful, low-profile, soft leather upper, suede overlays and gum sole, making it a staple in everyone's closet - on and off the pitch.",
+      "image": "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/3bbecbdf584e40398446a8bf0117cf62_9366/Samba_OG_Shoes_White_B75806_01_00_standard.jpg",
+      "image1": "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/b067d21288bc43ec8298a8bf01180400_9366/Samba_OG_Shoes_White_B75806_04_standard.jpg",
+      "image2": "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/3a8d5f9cb7444bd195f1a8bf01180e68_9366/Samba_OG_Shoes_White_B75806_05_standard.jpg",
+      "image3": "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/97cd0902ae2e402b895aa8bf0117f98f_9366/Samba_OG_Shoes_White_B75806_03_standard.jpg",
+      "quantity": 1,
+      "isNew": "new"
     }
   ]
 }
