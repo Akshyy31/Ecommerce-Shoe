@@ -2,12 +2,20 @@ import React, { useEffect, useState } from "react";
 import { Api } from "../commonapi/api";
 import { Eye, Pencil, Trash } from "lucide-react";
 import AddProducts from "./Addproducts";
+import EditProduct from "./EditProducts";
+import swal from "sweetalert";
 
 function AdminProducts() {
   const [products, setProducts] = useState([]);
   const [showAddForm, setShowAddForm] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [editProductId, setEditProductId] = useState(false);
   const itemsPerPage = 10;
+
+  const closeEditModal = () => {
+    setEditProductId(null);
+    fetchProducts();
+  };
 
   const fetchProducts = async () => {
     try {
@@ -28,10 +36,57 @@ function AdminProducts() {
   const currentProducts = products.slice(indexOfFirstItem, indexOfLastItem);
   const totalPages = Math.ceil(products.length / itemsPerPage);
 
+  const handleViewProduct = (product) => {
+    swal({
+      title: product.name,
+      content: createProductContent(product),
+      buttons: ["Close"],
+    });
+  };
+
+  const createProductContent = (product) => {
+    const container = document.createElement("div");
+
+    container.innerHTML = `
+  <div style="text-align: center; margin-bottom: 12px;">
+    <img src="${product.image}" alt="${product.name}"  style="width: 150px; height: auto; border-radius: 8px;" />
+  </div>
+  <p><strong>Brand:</strong> ${product.brand}</p>
+  <p><strong>Category:</strong> ${product.category}</p>
+  <p><strong>Price:</strong> ₹${product.price}</p>
+  <p><strong>Stock:</strong> ${product.stock}</p>
+  <p><strong>Description:</strong> ${product.description}</p>
+`;
+
+    return container;
+  };
+
+  const handleDeleteProduct = (id) => {
+  swal({
+    title: "Are you sure?",
+    text: "Once deleted, you will not be able to recover this product!",
+    icon: "warning",
+    buttons: ["Cancel", "Delete"],
+    dangerMode: true,
+  }).then(async (willDelete) => {
+    if (willDelete) {
+      try {
+        await Api.delete(`/products/${id}`);
+        swal("Deleted!", "The product has been removed.", "success");
+        fetchProducts(); // Refresh product list
+      } catch (error) {
+        console.error("Delete failed:", error);
+        swal("Oops!", "Failed to delete product.", "error");
+      }
+    }
+  });
+};
+
+
   return (
-    <div className="p-4 bg-gray-100 min-h-screen">
+    <div className="p-4 bg-white min-h-screen">
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-bold text-gray-800">All Products List</h2>
+        <h4 className="text-2xl font-bold text-gray-800">Products List</h4>
         <button
           onClick={() => setShowAddForm(!showAddForm)}
           className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
@@ -50,9 +105,9 @@ function AdminProducts() {
 
       {/* Products Table */}
       <div className="overflow-x-auto p-3">
-        <table className="min-w-full bg-white border rounded-lg shadow-sm">
-          <thead className="bg-gray-100">
-            <tr className="text-left text-gray-700 text-sm">
+        <table className="min-w-full bg-white border rounded-xl shadow-md">
+          <thead className="bg-white border">
+            <tr className="text-left text-gray-700 text-sm ">
               <th className="p-3">Product</th>
               <th className="p-3">Price</th>
               <th className="p-3">ID</th>
@@ -64,7 +119,7 @@ function AdminProducts() {
             {currentProducts.map((product, i) => (
               <tr
                 key={product.id}
-                className={i % 2 === 0 ? "bg-white" : "bg-gray-50"}
+                className={i % 2 === 0 ? "bg-gray-50" : "bg-white"}
               >
                 <td className="p-2 flex items-center gap-3">
                   <img
@@ -90,13 +145,19 @@ function AdminProducts() {
                   </span>
                 </td>
                 <td className="p-3 flex gap-2">
-                  <button className="bg-gray-100 hover:bg-gray-200 p-2 rounded">
+                  <button
+                    onClick={() => handleViewProduct(product)}
+                    className="bg-gray-100 hover:bg-gray-200 p-2 rounded"
+                  >
                     <Eye size={16} className="text-gray-600" />
                   </button>
-                  <button className="bg-yellow-100 hover:bg-yellow-200 p-2 rounded">
+                  <button
+                    onClick={() => setEditProductId(product.id)}
+                    className="bg-yellow-100 hover:bg-yellow-200 p-2 rounded"
+                  >
                     <Pencil size={16} className="text-yellow-600" />
                   </button>
-                  <button className="bg-red-100 hover:bg-red-200 p-2 rounded">
+                  <button  onClick={() => handleDeleteProduct(product.id)} className="bg-red-100 hover:bg-red-200 p-2 rounded">
                     <Trash size={16} className="text-red-600" />
                   </button>
                 </td>
@@ -141,6 +202,19 @@ function AdminProducts() {
           <p className="text-gray-500 text-center py-6">No products found.</p>
         )}
       </div>
+      {editProductId && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
+          <div className="bg-white p-6 rounded-lg w-[90%] max-w-2xl relative">
+            <button
+              className="absolute top-2 right-2 text-gray-600 hover:text-black text-xl font-bold"
+              onClick={closeEditModal}
+            >
+              ×
+            </button>
+            <EditProduct id={editProductId} onClose={closeEditModal} />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

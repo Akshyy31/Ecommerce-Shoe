@@ -13,7 +13,23 @@
       "email": "akshayshaji688@gmail.com",
       "password": "akshay@123",
       "role": "user",
-      "cart": [],
+      "cart": [
+        {
+          "id": "3",
+          "name": "Nike Dunk NextNature",
+          "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a5f788d9-208d-47f5-a90a-6e331cd6acbf/W+NIKE+DUNK+LOW+NEXT+NATURE.png",
+          "image1": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b7749f8a-2e8f-41d4-bc87-577555eb6b49/W+NIKE+DUNK+LOW+NEXT+NATURE.png",
+          "image2": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c9f111a3-7b98-439c-b607-3213daf3feac/W+NIKE+DUNK+LOW+NEXT+NATURE.png",
+          "image3": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/143c3087-0f60-48d7-8d07-5655e62fc72b/W+NIKE+DUNK+LOW+NEXT+NATURE.png",
+          "price": 8295,
+          "category": "Women",
+          "description": "Sustainable Materials Nike Dunk Low Next Nature",
+          "stock": "Available",
+          "quantity": 1,
+          "isNew": "new",
+          "brand": "Nike"
+        }
+      ],
       "orders": [
         {
           "id": 1752642822101,
@@ -32,6 +48,29 @@
               "stock": 8,
               "quantity": 1,
               "isNew": "new",
+              "brand": "Nike"
+            }
+          ],
+          "total": 8295,
+          "status": "pending"
+        },
+        {
+          "id": 1752668293290,
+          "date": "7/16/2025, 5:48:13 PM",
+          "items": [
+            {
+              "id": "4",
+              "name": "Nike Air Max Plus",
+              "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/87a2bcdf-c846-4747-a3dd-7b5401bc1ca3/NIKE+AIR+MAX+PLUS.png",
+              "image1": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/9ff11d83-d063-4bb9-81ed-0bf524126cd9/NIKE+AIR+MAX+PLUS.png",
+              "image2": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c163b6d4-a9b0-43d3-82ed-845acf46f1e4/NIKE+AIR+MAX+PLUS.png",
+              "image3": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b333b646-2206-4ce7-9eb3-8854c562f05f/NIKE+AIR+MAX+PLUS.png",
+              "price": 8295,
+              "category": "Men",
+              "description": "Sustainable Materials Nike Dunk Low Next Nature",
+              "stock": "Available",
+              "quantity": 1,
+              "isNew": "",
               "brand": "Nike"
             }
           ],
@@ -93,11 +132,11 @@
       "image1": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b597e2af-441b-4877-aa94-d086f65e22f4/NIKE+SB+DUNK+LOW+PRO.png",
       "image2": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/1f6419a7-087e-40e0-89cf-86a7f3dbef06/NIKE+SB+DUNK+LOW+PRO.png",
       "image3": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a2db8c5d-932c-4464-91f3-f6aca7ecec79/NIKE+SB+DUNK+LOW+PRO.png",
-      "price": 9590,
+      "price": "9599",
       "category": "Men",
       "description": "Nike SB Dunk Low Pro Skate Shoe",
       "stock": "Available",
-      "quantity": 1,
+      "quantity": "5",
       "isNew": "new",
       "brand": "Nike"
     },
@@ -220,21 +259,6 @@
       "quantity": 1,
       "isNew": "",
       "brand": "Nike"
-    },
-    {
-      "id": "10",
-      "name": "Suede Classic Sneakers",
-      "image": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_750,h_750/global/399781/04/sv01/fnd/IND/fmt/png/Suede-Classic-Sneakers",
-      "image1": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_750,h_750/global/399781/04/mod01/fnd/IND/fmt/png/Suede-Classic-Sneakers",
-      "image2": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_750,h_750/global/399781/04/sv02/fnd/IND/fmt/png/Suede-Classic-Sneakers",
-      "image3": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_750,h_750/global/399781/04/sv04/fnd/IND/fmt/png/Suede-Classic-Sneakers",
-      "price": 5599,
-      "category": "Women",
-      "description": "The Suede hit the scene in 1968 and has been changing the game ever since. It's been worn by icons of every generation, and it's",
-      "stock": "Available",
-      "quantity": 1,
-      "isNew": "",
-      "brand": "Puma"
     },
     {
       "id": "11",

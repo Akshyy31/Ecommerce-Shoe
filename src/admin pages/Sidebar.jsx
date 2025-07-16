@@ -19,13 +19,13 @@ const Sidebar = () => {
   }
 
   return (
-    <div className="h-screen w-72 bg-white flex flex-col shadow-2xl z-10 border-r border-gray-200">
+    <div className="h-screen w-72 bg-blue-500 flex flex-col shadow-2xl z-10 border-r border-gray-200">
       {/* Header */}
       <div className="p-1 ">
         <div className="flex items-center  gap-3 mb-2">
          
           
-            <h4 className="font-bold text-black ">Urban-Foot</h4>
+            <h4 className="font-bold text-white text-center font-poppins">Urban-Foot</h4>
             {/* <p className="text-xs text-slate-400">Management System</p> */}
           
         </div>
@@ -38,10 +38,10 @@ const Sidebar = () => {
             <NavLink
               key={item.label}
               to={item.path}
-              className={`group flex items-center justify-between px-4 py-3 !no-underline rounded-xl text-sm font-medium transition-all duration-200 ${
+              className={`group flex items-center justify-between px-4 py-3 text-white !no-underline rounded-xl text-sm font-medium transition-all duration-200 ${
                 location.pathname === item.path
-                  ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow transform translate-x-1'
-                  : 'hover:bg-slate-700/50 text-slate-300 hover:text-white hover:translate-x-1'
+                  ? 'bg-gradient-to-r from-violet-400 to-blue-200 text-white shadow transform translate-x-1'
+                  : 'hover:bg-slate-700/50 text-slate-800 hover:text-white hover:translate-x-1'
               }`}
             >
               <div className="flex items-center gap-3">

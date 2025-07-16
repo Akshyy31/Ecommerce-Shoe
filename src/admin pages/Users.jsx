@@ -41,7 +41,7 @@ function Users() {
   };
 
   return (
-    <div className="p-5 bg-gray-100 min-h-screen">
+    <div className="p-5 bg-white min-h-screen">
       <h5 className="text-3xl font-bold text-gray-800 mb-6">User Management</h5>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

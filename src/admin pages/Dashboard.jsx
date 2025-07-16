@@ -81,7 +81,7 @@ const Dashboard = () => {
       label: "Pending",
       value: totalPending,
       icon: <Truck className="w-5 h-5" />,
-      bg: "bg-blue-700",
+      bg: "bg-green-300",
     },
     {
       label: "Delivered",
@@ -135,7 +135,7 @@ const Dashboard = () => {
     }));
   };
 
-  const COLORS = ["#facc15", "#4f46e5", "#10b981"];
+  const COLORS = ["#9578cd", "#4f46e5", "#10b981"];
 
   return (
     <div className="bg-white min-h-screen">
@@ -170,6 +170,7 @@ const Dashboard = () => {
             <PieChart>
               <Pie
                 data={pieData}
+                innerRadius={70}
                 cx="50%"
                 cy="50%"
                 labelLine={false}
@@ -195,15 +196,15 @@ const Dashboard = () => {
           {/* Legend */}
           <div className="flex justify-around mt-4 text-sm">
             <div className="flex items-center gap-2">
-              <span className="w-3 h-3 rounded-full bg-[#facc15]"></span>
+              <span className="w-3 h-3 rounded-full bg-[#9578cd]"></span>
               <span>Pending</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="w-3 h-3 rounded-full bg-[#4f46e5]"></span>
+              <span className="w-3 h-3 rounded-full bg-[#342ea1]"></span>
               <span>Delivered</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="w-3 h-3 rounded-full bg-[#10b981]"></span>
+              <span className="w-3 h-3 rounded-full bg-[#2f745d]"></span>
               <span>Processing</span>
             </div>
           </div>
