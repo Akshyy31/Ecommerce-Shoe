@@ -23,8 +23,8 @@ function Navbar1() {
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <div className="flex-shrink-0">
-              <Link to="/" className="font-bold text-3xl !text-black hover:no-underline">
-                Urban-Foot
+              <Link to="/" className="font-bold text-3xl !text-black !no-underline">
+                URBEN-FOOT
               </Link>
             </div>
 
@@ -70,13 +70,13 @@ function Navbar1() {
             <div className="hidden md:flex items-center space-x-6">
               <Link
                 to="/"
-                className="!text-black hover:text-indigo-600 font-semibold p-3"
+                className="!text-black hover:text-indigo-600 font-semibold p-3 !no-underline"
               >
                 Home
               </Link>
               <Link
                 to="/productlist"
-                className="!text-black hover:text-indigo-600 font-semibold p-3"
+                className="!text-black hover:text-indigo-600 font-semibold p-3 !no-underline"
               >
                 Products
               </Link>
@@ -95,7 +95,7 @@ function Navbar1() {
 
               <Link
                 to="/wishlist"
-                className="relative !text-black hover:text-indigo-600 m-3"
+                className="relative !text-black hover:text-indigo-600 m-3 !no-underline"
               >
                 <Heart size={24} />
                 {wishlistCount > 0 && (
@@ -120,7 +120,7 @@ function Navbar1() {
                       <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-2 z-10">
                         <Link
                           to="/profile"
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          className="block px-4 py-2 text-sm !text-black !no-underline hover:bg-gray-100"
                         >
                           Profile
                         </Link>

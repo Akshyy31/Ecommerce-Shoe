@@ -49,11 +49,11 @@ const Checkout = () => {
   return (
     <>
       <Navbar1 />
-      <div className="bg-gray-100 min-h-screen py-10 px-4">
+      <div className="bg-gray-100 min-h-screen py-10 pt-3">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Left: Form & Cart Items */}
-          <div className="lg:col-span-2 bg-white p-8 rounded-2xl shadow-md">
-            <h2 className="text-3xl font-bold text-gray-800 mb-6">Checkout</h2>
+          <div className="lg:col-span-2 bg-white  rounded-2xl shadow-md p-5">
+          
 
             {/* Shipping Info */}
             <section className="mb-8">
@@ -85,32 +85,15 @@ const Checkout = () => {
                   className="border px-4 py-3 rounded-md md:col-span-2"
                   required
                 />
-                {/* <input
-                  type="text"
-                  placeholder="City"
-                  className="border px-4 py-3 rounded-md"
-                  required
-                />
-                <input
-                  type="text"
-                  placeholder="State"
-                  className="border px-4 py-3 rounded-md"
-                  required
-                />
-                <input
-                  type="text"
-                  placeholder="Pincode"
-                  className="border px-4 py-3 rounded-md"
-                  required
-                /> */}
+                
               </form>
             </section>
 
             {/* Cart Items */}
-            <section className="mt-8">
-              <h3 className="text-xl font-semibold text-gray-700 mb-4">
+            <section className="mt-8 p-2">
+              <h5 className="text-xl font-semibold text-gray-700 mb-4">
                 Your Items
-              </h3>
+              </h5>
               <div className="space-y-4">
                 {cart.map((item) => (
                   <div
@@ -133,12 +116,12 @@ const Checkout = () => {
           </div>
 
           {/* Right: Order Summary */}
-          <div className="bg-white p-8 rounded-2xl shadow-md h-fit sticky top-24">
+          <div className="bg-white p-8 rounded-2xl shadow-md h-fit sticky top-24 p-4">
             <h2 className="text-xl font-bold text-gray-800 mb-6">
               Order Summary
             </h2>
 
-            <div className="space-y-4 text-gray-700">
+            <div className="space-y-4 text-gray-700 p-2">
               {cart.map((item) => (
                 <div key={item.id} className="flex justify-between text-sm">
                   <p>{item.name}</p>

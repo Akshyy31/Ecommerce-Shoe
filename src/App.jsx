@@ -18,6 +18,7 @@ import AdminOrders from "./admin pages/AdminOrders";
 import Users from "./admin pages/Users";
 import Userdetails from "./admin pages/Userdetails";
 import EditProduct from "./admin pages/EditProducts";
+import UserProfile from "./components/UserProfile";
 
 function App() {
   return (
@@ -27,22 +28,23 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/profile" element={<UserProfile />} />
 
         {/* User Protected Routes */}
         <Route
           path="/productlist"
           element={
-            <ProtectedRoute allowedRoles={["user"]}>
+            
               <ProductList />
-            </ProtectedRoute>
+           
           }
         />
         <Route
           path="/product-detail/:id"
           element={
-            <ProtectedRoute allowedRoles={["user"]}>
+            
               <ProductDetail />
-            </ProtectedRoute>
+           
           }
         />
         <Route

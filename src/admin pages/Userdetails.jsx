@@ -62,10 +62,10 @@ function Userdetails() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-5">
+    <div className="min-h-screen bg-white p-5">
       <div className="max-w-7xl mx-auto space-y-6">
         {/* Header */}
-        <div className="bg-blue-200 rounded-2xl shadow-sm p-6 flex items-center justify-between">
+        <div className="bg-blue-50 rounded-2xl shadow-sm p-6 flex items-center justify-between">
           <div className="flex items-center gap-4 p-2">
             <div className="w-16 h-16 bg-gradient-to-r p-2 from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
               <User className="w-8 h-8 text-white" />
@@ -115,7 +115,7 @@ function Userdetails() {
             {userOrders.length > 0 ? (
               <div className="space-y-4">
                 {userOrders.map((order) => (
-                  <div key={order.id} className="border rounded-lg m-3 hover:shadow transition-shadow">
+                  <div key={order.id} className="border bg-blue-50 rounded-lg m-3 p-2 hover:shadow transition-shadow">
                     <div className="flex justify-between items-start mb-3">
                       <div>
                         <p className="font-semibold text-gray-800">#{order.id}</p>

@@ -15,21 +15,18 @@ import AuthContext from "../contextapi/AuthContext";
 function Home() {
   const [user, setUser] = useState(null);
   const [products, setProducts] = useState([]);
-  const {currentUser}= useContext(AuthContext)
+  const { currentUser } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
-  if (currentUser&&currentUser.role==="admin") {
-    navigate('/admin/dashboard')
-    
-    
+  if (currentUser && currentUser.role === "admin") {
+    navigate("/admin/dashboard");
   }
 
   useEffect(() => {
     const userId = localStorage.getItem("userId");
     if (userId) {
-      axios
-        .get(`http://localhost:3000/users/${userId}`)
+      Api.get(`/users/${userId}`)
         .then((res) => setUser(res.data))
         .catch((err) => console.error("Error fetching user", err));
     }
@@ -37,8 +34,6 @@ function Home() {
 
   console.log(user);
   console.log(products);
-
-
 
   return (
     <div>

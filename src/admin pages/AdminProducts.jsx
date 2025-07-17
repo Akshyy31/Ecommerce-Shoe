@@ -9,6 +9,8 @@ function AdminProducts() {
   const [products, setProducts] = useState([]);
   const [showAddForm, setShowAddForm] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [searchName, setSearchName] = useState("");
+  const [searchCategory, setSearchCategory] = useState("ALL");
   const [editProductId, setEditProductId] = useState(false);
   const itemsPerPage = 10;
 
@@ -28,13 +30,26 @@ function AdminProducts() {
 
   useEffect(() => {
     fetchProducts();
-  }, []);
+  }, [searchName,searchCategory]);
+
+  const filteredProducts = products.filter((product) => {
+    const nameMatch = product.name
+      .toLowerCase()
+      .includes(searchName.toLowerCase());
+      const categoryMatch =
+  searchCategory === "ALL" || product.category.toLowerCase() === searchCategory.toLowerCase();
+
+    return nameMatch&&categoryMatch;
+  });
 
   // Calculate paginated products
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentProducts = products.slice(indexOfFirstItem, indexOfLastItem);
-  const totalPages = Math.ceil(products.length / itemsPerPage);
+  const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+  const currentProducts = filteredProducts.slice(
+    indexOfFirstItem,
+    indexOfLastItem
+  );
 
   const handleViewProduct = (product) => {
     swal({
@@ -62,26 +77,25 @@ function AdminProducts() {
   };
 
   const handleDeleteProduct = (id) => {
-  swal({
-    title: "Are you sure?",
-    text: "Once deleted, you will not be able to recover this product!",
-    icon: "warning",
-    buttons: ["Cancel", "Delete"],
-    dangerMode: true,
-  }).then(async (willDelete) => {
-    if (willDelete) {
-      try {
-        await Api.delete(`/products/${id}`);
-        swal("Deleted!", "The product has been removed.", "success");
-        fetchProducts(); // Refresh product list
-      } catch (error) {
-        console.error("Delete failed:", error);
-        swal("Oops!", "Failed to delete product.", "error");
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this product!",
+      icon: "warning",
+      buttons: ["Cancel", "Delete"],
+      dangerMode: true,
+    }).then(async (willDelete) => {
+      if (willDelete) {
+        try {
+          await Api.delete(`/products/${id}`);
+          swal("Deleted!", "The product has been removed.", "success");
+          fetchProducts(); // Refresh product list
+        } catch (error) {
+          console.error("Delete failed:", error);
+          swal("Oops!", "Failed to delete product.", "error");
+        }
       }
-    }
-  });
-};
-
+    });
+  };
 
   return (
     <div className="p-4 bg-white min-h-screen">
@@ -102,6 +116,28 @@ function AdminProducts() {
           onAdded={fetchProducts}
         />
       )}
+
+      <div className="flex flex-col md:flex-row md:items-center gap-4 p-3">
+        <input
+          type="text"
+          placeholder="Search by name"
+          value={searchName}
+          onChange={(e) => setSearchName(e.target.value)}
+          className="border px-3 py-2 rounded-md w-full md:w-1/3"
+        />
+
+        <select
+          value={searchCategory}
+          onChange={(e) => setSearchCategory(e.target.value)}
+          className="border px-3 py-2 rounded-md w-full md:w-1/3"
+        >
+          <option value="ALL">All Categories</option>
+          <option value="Men">Men</option>
+          <option value="Women">Women</option>
+          <option value="Kids">Kids</option>
+          <option value="Running">Running</option>
+        </select>
+      </div>
 
       {/* Products Table */}
       <div className="overflow-x-auto p-3">
@@ -157,7 +193,10 @@ function AdminProducts() {
                   >
                     <Pencil size={16} className="text-yellow-600" />
                   </button>
-                  <button  onClick={() => handleDeleteProduct(product.id)} className="bg-red-100 hover:bg-red-200 p-2 rounded">
+                  <button
+                    onClick={() => handleDeleteProduct(product.id)}
+                    className="bg-red-100 hover:bg-red-200 p-2 rounded"
+                  >
                     <Trash size={16} className="text-red-600" />
                   </button>
                 </td>

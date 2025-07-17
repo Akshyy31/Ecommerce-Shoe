@@ -1,22 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useLocation, NavLink, useNavigate } from "react-router-dom";
 import {
   LogOut,
   User,
-  Folder,
-  Bell,
-  MessageSquare,
-  HelpCircle,
   Settings,
   LayoutDashboard,
   ShoppingCart,
   ChevronRight,
   Package,
 } from "lucide-react";
+import AuthContext from "../contextapi/AuthContext";
 
+ 
 const Sidebar = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  let {currentUser} = useContext(AuthContext)
+  console.log("user from side bar as admin",currentUser );
+  
   
   const navItems = [
     {
@@ -35,9 +36,11 @@ const Sidebar = () => {
 
   const logout = () => {
     localStorage.removeItem("userId");
-    navigate("/");
+    currentUser= null
+    navigate("/login");
   };
 
+  
   return (
     <div className="h-screen w-72 bg-white flex flex-col shadow-2xl z-10 border-r border-gray-200">
       {/* Header */}

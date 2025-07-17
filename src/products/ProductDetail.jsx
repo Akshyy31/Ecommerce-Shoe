@@ -9,13 +9,14 @@ import { toast, ToastContainer } from "react-toastify";
 import { FaHeart, FaHeartBroken } from "react-icons/fa";
 import Footer from "../components/Footer";
 import { Toaster } from "react-hot-toast";
+import Swal from "sweetalert2";
 
 function ProductDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
 
   const { currentUser } = useContext(AuthContext);
-  const { addToCart } = useContext(CartContext);
+  const { addToCart ,cart} = useContext(CartContext);
   const { toggleWishlist, isInWishlist } = useContext(WishlistContext);
 
   const [product, setProduct] = useState({});
@@ -34,14 +35,30 @@ function ProductDetail() {
     fetchProduct();
   }, [id]);
 
-  const handleAddToCart = () => {
-    if (!currentUser) {
-      navigate("/login");
-      return;
-    }
-    addToCart(product, quantity);
-    toast.success(`${quantity} item(s) added to cart.`);
-  };
+ const handleAddToCart = () => {
+  if (!currentUser) {
+    navigate("/login");
+    return;
+  }
+
+  // Check if product already exists in cart
+  const existingItem = cart.find(
+    (item) => item.id === product.id && item.size === selectedSize
+  );
+
+  if (existingItem) {
+    Swal.fire({
+      icon: "info",
+      title: "Already in Cart",
+      text: "This item is already in your cart.",
+      confirmButtonColor: "#d33",
+    });
+    return;
+  }
+
+  addToCart(product, quantity, selectedSize); // Assuming addToCart accepts size
+  toast.success(`${quantity} item(s) added to cart.`);
+};
 
   const handleToggleWishlist = () => {
     if (!currentUser) {
