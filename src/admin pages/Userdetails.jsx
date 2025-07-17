@@ -15,16 +15,29 @@ function Userdetails() {
     fetchData();
   }, [id]);
 
-  const fetchData = async () => {
-    try {
-      const userRes = await Api.get(`/users/${id}`);
-      const user = userRes.data;
-      setUserDetails(user);
-      // Fetch product details for wishlist
-    } catch (error) {
-      console.error('Error loading user data:', error);
-    }
-  };
+ const fetchData = async () => {
+  try {
+    // Get user details
+    const userRes = await Api.get(`/users/${id}`);
+    const user = userRes.data;
+    setUserDetails(user);
+
+    // Get wishlist for this user
+    const wishlistRes = await Api.get(`/wishlist?userId=${id}`);
+    setWishlistItems(wishlistRes.data);
+
+    // Get cart items for this user
+    const cartRes = await Api.get(`/cart?userId=${id}`);
+    setCartItems(cartRes.data);
+
+    // Get orders for this user
+    const ordersRes = await Api.get(`/orders?userId=${id}`);
+    setUserOrders(ordersRes.data);
+  } catch (error) {
+    console.error("Error loading user data:", error);
+  }
+};
+
   
   return (
     <div className="p-6 max-w-5xl mx-auto bg-white shadow rounded-xl mt-6">

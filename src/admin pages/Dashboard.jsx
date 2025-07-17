@@ -21,7 +21,6 @@ import {
 } from "recharts";
 import { Api } from "../commonapi/api";
 
-
 const Dashboard = () => {
   const [users, setUsers] = useState([]);
   const [products, setProducts] = useState([]);
@@ -42,6 +41,8 @@ const Dashboard = () => {
     };
 
     fetchData();
+    const interval = setInterval(fetchData, 30000); // every 30 seconds
+    return () => clearInterval(interval); // clean up
   }, []);
 
   const totalRevenue = orders.reduce(
@@ -99,7 +100,8 @@ const Dashboard = () => {
       label: "Revenue",
       value: `₹${totalRevenue.toLocaleString()}`,
       icon: <Wallet className="w-5 h-5" />,
-      bg: "bg-rose-200",
+      // bg: "bg-rose-200",
+      bg: "bg-yellow-200",
     },
   ];
 
@@ -139,7 +141,7 @@ const Dashboard = () => {
 
   return (
     <div className="bg-white min-h-screen">
-        {/* Stats Cards */}
+      {/* Stats Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 mb-10 p-3">
         {stats.map((stat) => (
           <div
