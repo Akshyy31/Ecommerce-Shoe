@@ -233,6 +233,40 @@
           "status": "delivered"
         }
       ]
+    },
+    {
+      "id": "aa30",
+      "username": "sreya",
+      "email": "sreya@gmail.com",
+      "password": "sreya@gmail.com",
+      "role": "user",
+      "blocked": false,
+      "cart": [],
+      "orders": [
+        {
+          "id": 1752751731499,
+          "date": "7/17/2025, 4:58:51 PM",
+          "items": [
+            {
+              "id": "6",
+              "name": "Powerlish W",
+              "image": "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/69bc2093e21d4134b70d9d9083ef19ce_9366/Powerlish_W_Purple_JJ5174_06_standard.jpg",
+              "image1": "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/075391b376594a7d97a9dba40faf7699_9366/Powerlish_W_Purple_JJ5174_02_standard.jpg",
+              "image2": "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/ce9f40471d3d438bb3eb08fac5414e51_9366/Powerlish_W_Purple_JJ5174_43_detail.jpg",
+              "image3": "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/1677c494d7954e30a6b037c7ee45e3c1_9366/Powerlish_W_Purple_JJ5174_41_detail.jpg",
+              "price": 2875,
+              "category": "Women",
+              "description": "Powerlish W Colour: Purple Burst / Preloved Purple / Light Bone / Off White",
+              "stock": "Available",
+              "quantity": 1,
+              "isNew": "",
+              "brand": "Nike"
+            }
+          ],
+          "total": 2875,
+          "status": "pending"
+        }
+      ]
     }
   ],
   "products": [

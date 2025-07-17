@@ -12,50 +12,47 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true); //
 
   useEffect(() => {
-  const userId = localStorage.getItem("userId");
-  if (userId) {
-    Api.get(`/users/${userId}`)
-      .then((res) => setCurrentUser(res.data))
-      .catch((err) => {
-        console.error("Failed to restore user on refresh", err);
-        localStorage.removeItem("userId");
-      })
-      .finally(() => setLoading(false)); // ✅ stop loading
-  } else {
-    setLoading(false); // ✅ no user to restore
-  }
-}, []);
-  
+    const userId = localStorage.getItem("userId");
+    if (userId) {
+      Api.get(`/users/${userId}`)
+        .then((res) => setCurrentUser(res.data))
+        .catch((err) => {
+          console.error("Failed to restore user on refresh", err);
+          localStorage.removeItem("userId");
+        })
+        .finally(() => setLoading(false)); // ✅ stop loading
+    } else {
+      setLoading(false); // ✅ no user to restore
+    }
+  }, []);
 
   // Login
   const loginUser = async (email, password) => {
-  try {
-    const res = await Api.get(`/users?email=${email}&password=${password}`);
+    try {
+      const res = await Api.get(`/users?email=${email}&password=${password}`);
 
-    if (res.data.length === 0) {
-      toast.error("Invalid credentials");
-      return ;
+      if (res.data.length === 0) {
+        toast.error("Invalid credentials");
+        return;
+      }
+
+      const userData = res.data[0];
+
+      if (userData.blocked) {
+        toast.error("Your account is blocked. Please contact support.");
+        return;
+      }
+
+      setCurrentUser(userData);
+      localStorage.setItem("userId", userData.id);
+      toast.success("Login successful!");
+      return userData; // return full user object
+    } catch (error) {
+      console.error("Login error:", error);
+      toast.error("Login failed. Please try again.");
+      return;
     }
-
-    const userData = res.data[0];
-
-    if (userData.blocked) {
-      toast.error("Your account is blocked. Please contact support.");
-      return ;
-    }
-
-    setCurrentUser(userData);
-    localStorage.setItem("userId", userData.id);
-    toast.success("Login successful!");
-    return userData; // return full user object
-
-  } catch (error) {
-    console.error("Login error:", error);
-    toast.error("Login failed. Please try again.");
-    return ;
-  }
-};
-
+  };
 
   //Registration
   const registerUser = async (formData) => {
@@ -77,8 +74,13 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  //Logout 
+  //Logout
   const logoutUser = () => {
+    if (currentUser && currentUser.role === "admin") {
+      setCurrentUser(null);
+      navigate("/");
+    }
+
     localStorage.removeItem("userId");
     setCurrentUser(null);
     navigate("/");
@@ -86,7 +88,7 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ currentUser, registerUser, loginUser, logoutUser , loading }}
+      value={{ currentUser, registerUser, loginUser, logoutUser, loading }}
     >
       {children}
     </AuthContext.Provider>

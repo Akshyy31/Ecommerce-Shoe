@@ -116,7 +116,7 @@ function AdminOrders() {
         <div className="flex flex-wrap items-center gap-3 m-3">
           {/* Filter Buttons */}
           <div className="flex gap-2">
-            {["all", "pending", "processing", "delivered"].map((status) => (
+            {["pending", "processing", "delivered"].map((status) => (
               <button
                 key={status}
                 onClick={() => setStatusFilter(status)}

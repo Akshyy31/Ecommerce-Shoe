@@ -88,7 +88,7 @@ function Users() {
                     {user.blocked ? "Unblock" : "Block"}
                   </span>
                 </button>
-                <Link to={`/admin/users/:${user.id}`}
+                <Link to={`/admin/users/${user.id}`}
                   type="button"
                   className="!bg-green-500 px-3 py-2 !text-white rounded-lg !no-underline hover:no-underline"
                 >

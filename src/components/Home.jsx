@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import { React, useState, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "./Footer";
 import axios from "axios";
@@ -10,12 +10,20 @@ import HeroBanner from "./HeroBanner";
 import HomeCard from "../Home_page_Card/HomeCard";
 import CategoryHome from "../Home_page_Card/CategoryHome";
 import About from "../About/About";
+import AuthContext from "../contextapi/AuthContext";
 
 function Home() {
   const [user, setUser] = useState(null);
   const [products, setProducts] = useState([]);
+  const {currentUser}= useContext(AuthContext)
 
   const navigate = useNavigate();
+
+  if (currentUser&&currentUser.role==="admin") {
+    navigate('/admin/dashboard')
+    
+    
+  }
 
   useEffect(() => {
     const userId = localStorage.getItem("userId");
@@ -29,6 +37,8 @@ function Home() {
 
   console.log(user);
   console.log(products);
+
+
 
   return (
     <div>
