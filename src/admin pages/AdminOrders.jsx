@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Api } from "../commonapi/api";
-import { MapPin, Package, User, Trash2 } from "lucide-react";
+import { Trash2 } from "lucide-react";
 
 function AdminOrders() {
   const [orders, setOrders] = useState([]);
   const [statusFilter, setStatusFilter] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
-  const [sortOrder, setSortOrder] = useState("desc");
   const [currentPage, setCurrentPage] = useState(1);
-  const ordersPerPage = 5;
+  const ordersPerPage = 10;
 
   useEffect(() => {
     const fetchOrders = async () => {
@@ -55,17 +54,6 @@ function AdminOrders() {
     }
   };
 
-  const deleteOrder = async (userId, orderId) => {
-    try {
-      const res = await Api.get(`/users/${userId}`);
-      const updatedOrders = res.data.orders.filter((o) => o.id !== orderId);
-      await Api.patch(`/users/${userId}`, { orders: updatedOrders });
-      setOrders((prev) => prev.filter((o) => o.id !== orderId));
-    } catch (err) {
-      console.error("Error deleting order:", err);
-    }
-  };
-
   const filteredOrders = orders
     .filter((order) =>
       statusFilter === "all" ? true : order.status === statusFilter
@@ -74,11 +62,6 @@ function AdminOrders() {
       (order) =>
         order.username?.toLowerCase().includes(searchQuery.toLowerCase()) ||
         order.email?.toLowerCase().includes(searchQuery.toLowerCase())
-    )
-    .sort((a, b) =>
-      sortOrder === "desc"
-        ? new Date(b.date) - new Date(a.date)
-        : new Date(a.date) - new Date(b.date)
     );
 
   const indexOfLastOrder = currentPage * ordersPerPage;
@@ -90,208 +73,133 @@ function AdminOrders() {
 
   const totalPages = Math.ceil(filteredOrders.length / ordersPerPage);
 
-  const statusConfig = {
-    pending: {
-      color: "border-yellow-300 text-yellow-700",
-      bg: "bg-yellow-50",
-      icon: "🕐",
-    },
-    processing: {
-      color: "border-blue-300 text-blue-700",
-      bg: "bg-blue-50",
-      icon: "🔄",
-    },
-    delivered: {
-      color: "border-green-300 text-green-700",
-      bg: "bg-green-50",
-      icon: "✅",
-    },
-  };
-
   return (
-    <div className="p-1 bg-white min-h-screen">
-      <div className="max-w-6xl mx-auto">
+    <div className="p-4 bg-white min-h-screen">
+      <h4 className="text-2xl text-center font-semibold mb-4">All Orders</h4>
 
+      <div className="flex flex-col sm:flex-row sm:items-center mb-3 gap-2 w-full sm:w-auto">
+        <input
+          type="text"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          placeholder="🔍 Search by User Name"
+          className="px-4 py-2 border border-gray-300 rounded-lg text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-400 w-full sm:w-64 transition"
+        />
 
-        <div className="flex flex-wrap items-center gap-3 m-3">
-          {/* Filter Buttons */}
-          <div className="flex gap-2">
-            {["pending", "processing", "delivered"].map((status) => (
-              <button
-                key={status}
-                onClick={() => setStatusFilter(status)}
-                className={`text-sm shadow-sm transition px-4 py-2 rounded-md  
-          ${
-            statusFilter === status
-              ? "bg-blue-600 text-white border-blue-600"
-              : "bg-blue-100 text-gray-700 border-gray-700 hover:bg-blue-200"
-          }`}
-              >
-                {status}
-              </button>
-            ))}
-          </div>
-
-          {/* Search Field */}
-          <input
-            type="text"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search by user/email"
-            className="border border-gray-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-300 rounded-md px-4 py-2 text-sm shadow-sm w-full md:w-64 transition"
-          />
-
-          {/* Sort Dropdown */}
-          <select
-            value={sortOrder}
-            onChange={(e) => setSortOrder(e.target.value)}
-            className="border border-gray-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-300 rounded-md px-4 py-2 text-sm shadow-sm transition"
-          >
-            <option value="desc">Newest First</option>
-            <option value="asc">Oldest First</option>
-          </select>
-        </div>
-
-        <div className="space-y-4">
-          {currentOrders.length > 0 ? (
-            currentOrders.map((order) => (
-              <div
-                key={order.id}
-                className={`relative overflow-hidden rounded-2xl shadow-md m-5 hover:shadow-lg transition-all duration-300 border-l-4 ${
-                  order.status === "pending"
-                    ? "border-l-amber-400"
-                    : order.status === "processing"
-                    ? "border-l-blue-400"
-                    : "border-l-green-400"
-                } bg-white`}
-              >
-                <div
-                  className={`${
-                    statusConfig[order.status].bg
-                  } px-3 border-b border-gray-100`}
-                >
-                  <div className="flex justify-between p-2  items-center">
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm">
-                        <User className="w-4 h-4 text-gray-600" />
-                      </div>
-                      <div>
-                        <h6 className="font-semibold text-gray-800 text-sm">
-                          {order.username}
-                        </h6>
-                        <p className="text-xs text-gray-600">{order.email}</p>
-                      </div>
-                    </div>
-                    <div className="text-right">
-                      <span
-                        className={`inline-flex items-center gap-1 px-2 rounded-full text-xs font-medium border ${
-                          statusConfig[order.status].color
-                        }`}
-                      >
-                        {statusConfig[order.status].icon} {order.status}
-                      </span>
-                      <p className="text-xs text-gray-500 mt-1">
-                        {new Date(order.date).toLocaleDateString()}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="p-2">
-                  <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3 ">
-                    {order.items.map((item, idx) => (
-                      <div
-                        key={idx}
-                        className="flex items-center gap-2  bg-gray rounded-lg hover:bg-gray-100 transition-colors"
-                      >
-                        <img
-                          src={item.image}
-                          alt={item.name}
-                          className="w-8 h-8 object-cover rounded-md"
-                        />
-                        <div className="flex-1 min-w-0">
-                          <p className="font-medium text-gray-800 text-xs truncate">
-                            {item.name}
-                          </p>
-                          <p className="text-xs text-gray-600">
-                            {item.quantity} × ₹{item.price}
-                          </p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="flex justify-between items-center p-1 border-t border-gray-100">
-                    <div className="flex items-center gap-2">
-                      <Package className="w-4 h-4 text-blue-600" />
-                      <span className="font-bold text-blue-700 text-sm">
-                        ₹{order.total}
-                      </span>
-                    </div>
-
-                    <div className="flex gap-2">
-                      {order.status === "pending" && (
-                        <button
-                          onClick={() =>
-                            updateOrderStatus(
-                              order.userId,
-                              order.id,
-                              "processing"
-                            )
-                          }
-                          className="px-3 py-1 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg text-xs font-medium"
-                        >
-                          Start Processing
-                        </button>
-                      )}
-                      {order.status === "processing" && (
-                        <button
-                          onClick={() =>
-                            updateOrderStatus(
-                              order.userId,
-                              order.id,
-                              "delivered"
-                            )
-                          }
-                          className="px-3 py-1 bg-blue-500 hover:bg-green-600 text-white rounded-lg text-xs font-medium"
-                        >
-                          Mark Delivered
-                        </button>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))
-          ) : (
-            <div className="text-center py-12">
-              <Package className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-              <p className="text-gray-600 text-lg">No orders found</p>
-              <p className="text-gray-400 text-sm">
-                Orders will appear here once customers place them
-              </p>
-            </div>
-          )}
-        </div>
-
-        {totalPages > 1 && (
-          <div className="flex justify-center mt-6 gap-2">
-            {[...Array(totalPages)].map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setCurrentPage(i + 1)}
-                className={`px-3 py-1.5 rounded border text-sm ${
-                  currentPage === i + 1
-                    ? "bg-blue-600 text-white"
-                    : "text-gray-700 border-gray-300 hover:bg-gray-100"
-                }`}
-              >
-                {i + 1}
-              </button>
-            ))}
-          </div>
-        )}
+        <select
+          value={statusFilter}
+          onChange={(e) => setStatusFilter(e.target.value)}
+          className="px-4 py-2 border border-gray-300 rounded-lg text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-400 transition w-full sm:w-48"
+        >
+          <option value="all">All Statuses</option>
+          <option value="pending">Pending</option>
+          <option value="processing">Processing</option>
+          <option value="delivered">Delivered</option>
+        </select>
       </div>
+
+      <div className="overflow-auto">
+        <table className="min-w-full text-sm  border-2 border-gray-200 rounded-lg overflow-hidden">
+          <thead className="bg-blue-100 text-left text-gray-600">
+            <tr>
+              <th className="p-3 border-1">Order ID</th>
+              <th className="p-3 border-1">User</th>
+              <th className="p-3 border-1">Items</th>
+              {/* <th className="p-3 border-1">Address</th> */}
+              <th className="p-3 border-1">Time</th>
+              <th className="p-3 border-1">Status</th>
+              <th className="p-3 border-1">Action</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y  divide-gray-100">
+            {currentOrders.map((order) => (
+              <tr key={order.id} className="hover:bg-gray-50">
+                <td className="p-3 text-blue-500 font-semibold  border">
+                  order_{order.id}
+                </td>
+                <td className="p-3">
+                  <div>
+                    <div className="font-semibold">{order.username}</div>
+                    <div className="text-xs text-gray-500">{order.email}</div>
+                  </div>
+                </td>
+                <td className="p-3 space-y-1 border">
+                  {order.items.map((item, idx) => (
+                    <div key={idx} className="text-xs">
+                      {item.name}{" "}
+                      <span className="text-gray-500">×{item.quantity}</span>
+                    </div>
+                  ))}
+                </td>
+                {/* <td className="p-3 border">{order.address}</td> */}
+                <td className="p-3 border">
+                  {new Date(order.date).toLocaleString()}
+                </td>
+                <td className="p-3 border">
+                  <span
+                    className={`px-2 py-1 rounded-full text-xs font-medium ${
+                      order.status === "pending"
+                        ? "bg-yellow-100 text-yellow-800"
+                        : order.status === "processing"
+                        ? "bg-blue-100 text-blue-800"
+                        : "bg-green-100 text-green-800"
+                    }`}
+                  >
+                    {order.status}
+                  </span>
+                </td>
+                <td className="p-3 flex  gap-1 ">
+                  {order.status === "pending" && (
+                    <button
+                      onClick={() =>
+                        updateOrderStatus(order.userId, order.id, "processing")
+                      }
+                      className="text-xs px-2 py-1 bg-yellow-500 hover:bg-yellow-600 text-white rounded"
+                    >
+                      Start Processing
+                    </button>
+                  )}
+                  {order.status === "processing" && (
+                    <button
+                      onClick={() =>
+                        updateOrderStatus(order.userId, order.id, "delivered")
+                      }
+                      className="text-xs px-2 py-1 bg-green-500 hover:bg-green-600 text-white rounded"
+                    >
+                      Mark Delivered
+                    </button>
+                  )}
+                </td>
+              </tr>
+            ))}
+            {currentOrders.length === 0 && (
+              <tr>
+                <td colSpan="7" className="p-4 text-center text-gray-500">
+                  No orders found.
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+
+      {totalPages > 1 && (
+        <div className="flex justify-center mt-6 gap-2">
+          {[...Array(totalPages)].map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrentPage(i + 1)}
+              className={`px-3 py-1.5 rounded border text-sm ${
+                currentPage === i + 1
+                  ? "bg-blue-600 text-white"
+                  : "text-gray-700 border-gray-300 hover:bg-gray-100"
+              }`}
+            >
+              {i + 1}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
