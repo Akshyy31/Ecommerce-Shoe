@@ -16,6 +16,8 @@ function Navbar1() {
     setShowDropdown(false); // Close dropdown on login/logout
   }, [currentUser]);
 
+  
+
   return (
     <div className="relative">
       <nav className="bg-white shadow-sm sticky top-0 z-50 w-full">

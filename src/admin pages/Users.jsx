@@ -29,9 +29,7 @@ function Users() {
 
     try {
       await Api.patch(`/users/${userId}`, updatedUser);
-      setUserList((prev) =>
-        prev.map((u) => (u.id === userId ? updatedUser : u))
-      );
+      setUserList((prev) => prev.map((u) => (u.id === userId ? updatedUser : u)));
     } catch (error) {
       console.error("Failed to update user:", error);
     }

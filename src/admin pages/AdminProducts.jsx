@@ -64,7 +64,7 @@ function AdminProducts() {
 
     container.innerHTML = `
   <div style="text-align: center; margin-bottom: 12px;">
-    <img src="${product.image}" alt="${product.name}"  style="width: 150px; height: auto; border-radius: 8px;" />
+    <img src="${product.image}" alt="${product.name}"  style="width: 200px; height: auto; border-radius: 8px;" />
   </div>
   <p><strong>Brand:</strong> ${product.brand}</p>
   <p><strong>Category:</strong> ${product.category}</p>
@@ -72,7 +72,6 @@ function AdminProducts() {
   <p><strong>Stock:</strong> ${product.stock}</p>
   <p><strong>Description:</strong> ${product.description}</p>
 `;
-
     return container;
   };
 
@@ -88,7 +87,7 @@ function AdminProducts() {
         try {
           await Api.delete(`/products/${id}`);
           swal("Deleted!", "The product has been removed.", "success");
-          fetchProducts(); // Refresh product list
+          fetchProducts(); 
         } catch (error) {
           console.error("Delete failed:", error);
           swal("Oops!", "Failed to delete product.", "error");

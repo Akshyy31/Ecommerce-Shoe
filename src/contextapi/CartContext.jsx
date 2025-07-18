@@ -2,14 +2,14 @@
 import { createContext, useState, useContext, useEffect } from "react";
 import AuthContext from "./AuthContext";
 import { Api } from "../commonapi/api";
-
+import swal from "sweetalert";
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const { currentUser } = useContext(AuthContext);
   const [cart, setCart] = useState([]);
 
-  const cartCount = cart.length; 
+  const cartCount = cart.length;
 
   // Fetch cart from backend on login
   useEffect(() => {
@@ -39,7 +39,6 @@ export const CartProvider = ({ children }) => {
     }
   };
 
-
   // add to cart
   const addToCart = async (product, quantity = 1) => {
     if (!currentUser) return;
@@ -47,6 +46,8 @@ export const CartProvider = ({ children }) => {
       const { data } = await Api.get(`/users/${currentUser.id}`);
       const existingCart = data.cart || [];
 
+      // Check if product already exists in cart
+     
       const updatedCart = existingCart.some((item) => item.id === product.id)
         ? existingCart.map((item) =>
             item.id === product.id
@@ -67,7 +68,6 @@ export const CartProvider = ({ children }) => {
     setCart(updatedCart);
     updateBackendCart(updatedCart);
   };
-
 
   const clearCart = () => {
     setCart([]);

@@ -9,14 +9,14 @@ import { toast, ToastContainer } from "react-toastify";
 import { FaHeart, FaHeartBroken } from "react-icons/fa";
 import Footer from "../components/Footer";
 import { Toaster } from "react-hot-toast";
-import Swal from "sweetalert2";
+import swal from "sweetalert";
 
 function ProductDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
 
   const { currentUser } = useContext(AuthContext);
-  const { addToCart ,cart} = useContext(CartContext);
+  const { addToCart, cart } = useContext(CartContext);
   const { toggleWishlist, isInWishlist } = useContext(WishlistContext);
 
   const [product, setProduct] = useState({});
@@ -35,30 +35,22 @@ function ProductDetail() {
     fetchProduct();
   }, [id]);
 
- const handleAddToCart = () => {
-  if (!currentUser) {
-    navigate("/login");
-    return;
-  }
+  const handleAddToCart = () => {
+    if (!currentUser) {
+      navigate("/login");
+      return;
+    }
 
-  // Check if product already exists in cart
-  const existingItem = cart.find(
-    (item) => item.id === product.id && item.size === selectedSize
-  );
+    const alreadyInCart = cart.some((item) => item.id === product.id);
 
-  if (existingItem) {
-    Swal.fire({
-      icon: "info",
-      title: "Already in Cart",
-      text: "This item is already in your cart.",
-      confirmButtonColor: "#d33",
-    });
-    return;
-  }
+    if (alreadyInCart) {
+      swal("Already in Cart", "This item is already in your cart.", "warning");
+      return;
+    }
 
-  addToCart(product, quantity, selectedSize); // Assuming addToCart accepts size
-  toast.success(`${quantity} item(s) added to cart.`);
-};
+    addToCart(product, quantity);
+    toast.success(`${quantity} item added to cart`);
+  };
 
   const handleToggleWishlist = () => {
     if (!currentUser) {
@@ -83,13 +75,13 @@ function ProductDetail() {
   return (
     <div>
       <Toaster
-              position="top-center"
-              toastOptions={{
-                style: {
-                  marginTop: "20px", // Optional: add space from top
-                },
-              }}
-            />
+        position="top-center"
+        toastOptions={{
+          style: {
+            marginTop: "20px", // Optional: add space from top
+          },
+        }}
+      />
       <Navbar1 />
       <div className="container mx-auto p-4 min-h-screen">
         <ToastContainer />
@@ -104,9 +96,21 @@ function ProductDetail() {
                 className="w-full max-h-[400px] object-contain"
               />
               <div className="grid grid-cols-3 gap-2">
-                <img src={product.image1} className="h-24 bg-white p-2 rounded" alt="img1" />
-                <img src={product.image2} className="h-24 bg-white p-2 rounded" alt="img2" />
-                <img src={product.image3} className="h-24 bg-white p-2 rounded" alt="img3" />
+                <img
+                  src={product.image1}
+                  className="h-24 bg-white p-2 rounded"
+                  alt="img1"
+                />
+                <img
+                  src={product.image2}
+                  className="h-24 bg-white p-2 rounded"
+                  alt="img2"
+                />
+                <img
+                  src={product.image3}
+                  className="h-24 bg-white p-2 rounded"
+                  alt="img3"
+                />
               </div>
             </div>
 
@@ -115,13 +119,21 @@ function ProductDetail() {
               {/* Wishlist Icon */}
               <div className="flex justify-end text-3xl">
                 {isInWishlist(product.id) ? (
-                  <FaHeart onClick={handleToggleWishlist} className="text-red-500 cursor-pointer" />
+                  <FaHeart
+                    onClick={handleToggleWishlist}
+                    className="text-red-500 cursor-pointer"
+                  />
                 ) : (
-                  <FaHeartBroken onClick={handleToggleWishlist} className="text-gray-400 cursor-pointer" />
+                  <FaHeartBroken
+                    onClick={handleToggleWishlist}
+                    className="text-gray-400 cursor-pointer"
+                  />
                 )}
               </div>
 
-              <h2 className="text-2xl text-red-500 font-bold">{product.name}</h2>
+              <h2 className="text-2xl text-red-500 font-bold">
+                {product.name}
+              </h2>
               <p className="text-gray-600">{product.description}</p>
               <div className="text-lg font-semibold text-black">
                 ₹ {Number(product.price).toLocaleString()}
@@ -129,14 +141,18 @@ function ProductDetail() {
 
               {/* Size Selection */}
               <div>
-                <label className="text-sm font-medium text-gray-700">Select Size</label>
+                <label className="text-sm font-medium text-gray-700">
+                  Select Size
+                </label>
                 <div className="flex flex-wrap gap-2 mt-2">
                   {product.available_sizes?.map((size) => (
                     <button
                       key={size}
                       onClick={() => setSelectedSize(size)}
                       className={`border px-3 py-1 rounded-full text-sm ${
-                        selectedSize === size ? "bg-black text-white" : "bg-white text-black"
+                        selectedSize === size
+                          ? "bg-black text-white"
+                          : "bg-white text-black"
                       }`}
                     >
                       {size}
@@ -147,13 +163,23 @@ function ProductDetail() {
 
               {/* Quantity */}
               <div>
-                <label className="text-sm font-medium text-gray-700">Quantity</label>
+                <label className="text-sm font-medium text-gray-700">
+                  Quantity
+                </label>
                 <div className="flex items-center gap-2 mt-2">
-                  <button onClick={decrementQuantity} className="px-3 py-1 border rounded">
+                  <button
+                    onClick={decrementQuantity}
+                    className="px-3 py-1 border rounded"
+                  >
                     -
                   </button>
-                  <span className="w-10 text-center">{String(quantity).padStart(2, "0")}</span>
-                  <button onClick={incrementQuantity} className="px-3 py-1 border rounded">
+                  <span className="w-10 text-center">
+                    {String(quantity).padStart(2, "0")}
+                  </span>
+                  <button
+                    onClick={incrementQuantity}
+                    className="px-3 py-1 border rounded"
+                  >
                     +
                   </button>
                 </div>
@@ -180,11 +206,22 @@ function ProductDetail() {
               {/* Additional Info */}
               <div className="p-4 border-t mt-2">
                 <h3 className="font-bold text-xl mb-2">Product Details</h3>
-                <p><strong>Brand:</strong> {product.brand}</p>
-                <p><strong>Category:</strong> {product.category}</p>
-                <p><strong>Price:</strong> ₹{product.price}</p>
-                <p><strong>Stock:</strong> {product.in_stock ? "In Stock" : "Available"}</p>
-                <p><strong>More:</strong> {product.additional_details}</p>
+                <p>
+                  <strong>Brand:</strong> {product.brand}
+                </p>
+                <p>
+                  <strong>Category:</strong> {product.category}
+                </p>
+                <p>
+                  <strong>Price:</strong> ₹{product.price}
+                </p>
+                <p>
+                  <strong>Stock:</strong>{" "}
+                  {product.in_stock ? "In Stock" : "Available"}
+                </p>
+                <p>
+                  <strong>More:</strong> {product.additional_details}
+                </p>
               </div>
             </div>
           </div>

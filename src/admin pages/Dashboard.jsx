@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Users,
   Package,
@@ -31,15 +31,12 @@ const Dashboard = () => {
     const fetchData = async () => {
       const resUsers = await Api.get("/users");
       const resProducts = await Api.get("/products");
-
       const allOrders = resUsers.data.flatMap((user) => user.orders || []);
       setUsers(resUsers.data);
       setProducts(resProducts.data);
       setOrders(allOrders);
-      setOrders(allOrders);
       setBarData(computeWeeklyRevenue(allOrders));
     };
-
     fetchData();
     const interval = setInterval(fetchData, 30000); // every 30 seconds
     return () => clearInterval(interval); // clean up
@@ -112,17 +109,9 @@ const Dashboard = () => {
   ];
 
   const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
   const computeWeeklyRevenue = (orders) => {
-    const revenueMap = {
-      Sun: 0,
-      Mon: 0,
-      Tue: 0,
-      Wed: 0,
-      Thu: 0,
-      Fri: 0,
-      Sat: 0,
-    };
+    
+    const revenueMap = { Sun: 0, Mon: 0, Tue: 0, Wed: 0,Thu: 0, Fri: 0, Sat: 0,};
 
     orders.forEach((order) => {
       const orderDate = new Date(order.date);
@@ -141,7 +130,6 @@ const Dashboard = () => {
 
   return (
     <div className="bg-white min-h-screen">
-      {/* Stats Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 mb-10 p-3 ">
         {stats.map((stat) => (
           <div
@@ -163,8 +151,7 @@ const Dashboard = () => {
 
       {/* Charts Section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 p-5">
-        {/* Pie Chart */}
-        <div className="bg-white  p-4 rounded-xl shadow">
+        <div className="bg-white  p-2 rounded-xl shadow">
           <h5 className="text-lg font-semibold mb-4">
             Order Status Distribution
           </h5>
@@ -195,7 +182,7 @@ const Dashboard = () => {
             </PieChart>
           </ResponsiveContainer>
 
-          {/* Legend */}
+          
           <div className="flex justify-around mt-4 text-sm">
             <div className="flex items-center gap-2">
               <span className="w-3 h-3 rounded-full bg-[#9578cd]"></span>
@@ -213,7 +200,7 @@ const Dashboard = () => {
         </div>
 
         {/* Bar Chart */}
-        <div className="bg-white p-4 rounded-xl shadow ">
+        <div className="bg-white p-3 rounded-xl shadow ">
           <h5 className="text-lg font-semibold mb-4">Weekly Revenue</h5>
           <ResponsiveContainer width="100%" height={250}>
             <BarChart data={barData}>
