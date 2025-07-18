@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link, useLocation, NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import {
   LogOut,
   User,
@@ -8,17 +8,16 @@ import {
   ShoppingCart,
   ChevronRight,
   Package,
+  X,
 } from "lucide-react";
 import AuthContext from "../contextapi/AuthContext";
 
- 
-const Sidebar = () => {
+const Sidebar = ({ onClose }) => {
   const location = useLocation();
   const navigate = useNavigate();
-  let {currentUser} = useContext(AuthContext)
-  console.log("user from side bar as admin",currentUser );
-  
-  
+  let { currentUser } = useContext(AuthContext);
+  console.log("user from side bar as admin", currentUser);
+
   const navItems = [
     {
       label: "Dashboard",
@@ -36,20 +35,25 @@ const Sidebar = () => {
 
   const logout = () => {
     localStorage.removeItem("userId");
-    currentUser= null
+    currentUser = null;
     navigate("/login");
   };
 
-  
   return (
-    <div className="h-screen w-72 bg-white flex flex-col shadow-2xl z-10 border-r border-gray-200">
+    <div className="h-full w-72 bg-white flex flex-col shadow-2xl z-10 border-r border-gray-200 relative overflow-y-auto scrollbar-thin">
+      {/* Close Button (Mobile Only) */}
+      <button
+        className="absolute top-4 right-4 text-gray-500 hover:text-black md:hidden"
+        onClick={onClose}
+      >
+        <X size={20} />
+      </button>
+
       {/* Header */}
-      <div className="">
-        <div className="flex justify-center items-center h-20  ">
-          <h3 className="font-extrabold text-black text-4xl text-center tracking-wider uppercase">
-            Urban-Foot
-          </h3>
-        </div>
+      <div className="flex justify-center items-center h-20">
+        <h3 className="font-extrabold text-black text-3xl text-center tracking-wider uppercase">
+          Urban-Foot
+        </h3>
       </div>
 
       {/* Navigation */}
@@ -59,6 +63,7 @@ const Sidebar = () => {
             <NavLink
               key={item.label}
               to={item.path}
+              onClick={onClose}
               className={`group flex items-center justify-between px-4 py-3 !text-black !no-underline rounded-xl text-sm font-medium transition-all duration-200 ${
                 location.pathname === item.path
                   ? "bg-gradient-to-r from-violet-400 to-blue-200 text-white shadow transform translate-x-1"
@@ -67,7 +72,6 @@ const Sidebar = () => {
             >
               <div className="flex items-center gap-3">
                 {item.icon}
-
                 <span className="font-medium">{item.label}</span>
               </div>
               <ChevronRight
@@ -83,15 +87,13 @@ const Sidebar = () => {
         </div>
       </nav>
 
-      {/* User Profile Section */}
-      <div className="p-4 border-t border-slate-700">
-        {/* Settings */}
-        <button className="w-full flex items-center gap-3 px-4 py-2 text-slate-400 hover:text-white hover:bg-slate-700/50 rounded-lg transition-colors duration-200 mb-2">
+      {/* Footer */}
+      <div className="p-4 border-t border-gray-200">
+        <button className="w-full flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-black hover:bg-slate-100 rounded-lg transition duration-200 mb-2">
           <Settings size={18} />
           <span className="text-sm">Settings</span>
         </button>
 
-        {/* Logout Button */}
         <button
           onClick={logout}
           className="w-full flex items-center justify-center gap-3 px-4 py-3 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white rounded-xl text-sm font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
