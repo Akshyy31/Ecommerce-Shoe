@@ -42,7 +42,7 @@ function AdminProducts() {
     return nameMatch&&categoryMatch;
   });
 
-  // Calculate paginated products
+  // pagination
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);

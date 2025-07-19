@@ -32,9 +32,7 @@ function Home() {
     }
   }, []);
 
-  console.log(user);
-  console.log(products);
-
+  
   return (
     <div>
       <Navbar1 />

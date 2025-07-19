@@ -17,6 +17,9 @@ function Cart() {
     0
   );
 
+  console.log("cart: ",cart);
+  
+
   return (
     <div>
       <Navbar1 />

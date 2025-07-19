@@ -20,6 +20,7 @@ function EditProduct({ id, onClose }) {
     try {
       const res = await Api.get(`/products/${id}`);
       setFormData(res.data);
+      console.log("product res : ", res);
     } catch (error) {
       console.error("Error fetching product:", error);
     }
@@ -28,6 +29,8 @@ function EditProduct({ id, onClose }) {
   useEffect(() => {
     fetchProduct();
   }, [id]);
+
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;

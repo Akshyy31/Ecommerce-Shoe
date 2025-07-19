@@ -513,6 +513,46 @@
           "status": "pending"
         }
       ]
+    },
+    {
+      "id": "b7f8",
+      "username": "Rizal",
+      "email": "rizal@gmail.com",
+      "password": "rizal@gmail.com",
+      "role": "user",
+      "blocked": false,
+      "cart": [
+        {
+          "id": "2",
+          "name": "Nike Dunk Low Retro",
+          "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/2990f85d-8844-4e5b-a222-31ed53a5a9d4/NIKE+DUNK+LOW+RETRO.png",
+          "image1": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/2990f85d-8844-4e5b-a222-31ed53a5a9d4/NIKE+DUNK+LOW+RETRO.png",
+          "image2": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/2990f85d-8844-4e5b-a222-31ed53a5a9d4/NIKE+DUNK+LOW+RETRO.png",
+          "image3": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/2990f85d-8844-4e5b-a222-31ed53a5a9d4/NIKE+DUNK+LOW+RETRO.png",
+          "price": 7900,
+          "category": "Men",
+          "description": "High-Quality Formal shoe for men",
+          "stock": "Available",
+          "quantity": 1,
+          "isNew": "new",
+          "brand": "Nike"
+        },
+        {
+          "id": "a467",
+          "name": "Samba",
+          "brand": "Adidas",
+          "category": "Women",
+          "price": 5000,
+          "stock": "Available",
+          "description": "Born on the pitch, the Samba is a timeless icon of street style. This silhouette stays true to its legacy with a tasteful, low-profile, soft leather upper, suede overlays and gum sole, making it a staple in everyone's closet - on and off the pitch.",
+          "image": "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/3bbecbdf584e40398446a8bf0117cf62_9366/Samba_OG_Shoes_White_B75806_01_00_standard.jpg",
+          "image1": "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/b067d21288bc43ec8298a8bf01180400_9366/Samba_OG_Shoes_White_B75806_04_standard.jpg",
+          "image2": "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/3a8d5f9cb7444bd195f1a8bf01180e68_9366/Samba_OG_Shoes_White_B75806_05_standard.jpg",
+          "image3": "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/97cd0902ae2e402b895aa8bf0117f98f_9366/Samba_OG_Shoes_White_B75806_03_standard.jpg",
+          "quantity": 3,
+          "isNew": "new"
+        }
+      ]
     }
   ],
   "products": [

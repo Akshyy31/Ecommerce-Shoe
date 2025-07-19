@@ -17,7 +17,7 @@ const ProtectedRoute = ({ allowedRoles = [] }) => {
     );
   }
 
-  // ✅ Authorized access
+  //  Authorized access
   return <Outlet />;
 };
 
