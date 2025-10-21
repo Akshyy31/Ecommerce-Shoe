@@ -11,6 +11,7 @@ function Cart() {
   const { currentUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
+
   
   const totalPrice = cart.reduce(
     (acc, item) => acc + item.price * item.quantity,

@@ -31,54 +31,12 @@ function App() {
         <Route path="/profile" element={<UserProfile />} />
 
         {/* User Protected Routes */}
-        <Route
-          path="/productlist"
-          element={
-            
-              <ProductList />
-           
-          }
-        />
-        <Route
-          path="/product-detail/:id"
-          element={
-            
-              <ProductDetail />
-           
-          }
-        />
-        <Route
-          path="/cartpage"
-          element={
-            <ProtectedRoute allowedRoles={["user"]}>
-              <Cart />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/check-out"
-          element={
-            <ProtectedRoute allowedRoles={["user"]}>
-              <Checkout />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/order-confirmation"
-          element={
-            <ProtectedRoute allowedRoles={["user"]}>
-              <Order />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/wishlist"
-          element={
-            <ProtectedRoute allowedRoles={["user"]}>
-              <Wishlist />
-            </ProtectedRoute>
-          }
-        />
+        <Route path="/productlist" element={<ProductList />} />
+        <Route path="/product-detail/:id" element={<ProductDetail />} />
+        <Route path="/cartpage" element={<Cart />} />
+        <Route path="/check-out" element={<Checkout />} />
+        <Route path="/order-confirmation" element={<Order />} />
+        <Route path="/wishlist" element={<Wishlist />} />
 
         {/* Admin Protected Routes */}
         <Route path="/admin" element={<AdminLayout />}>

@@ -47,7 +47,7 @@ export const CartProvider = ({ children }) => {
       const existingCart = data.cart || [];
 
       // Check if product already exists in cart
-     
+
       const updatedCart = existingCart.some((item) => item.id === product.id)
         ? existingCart.map((item) =>
             item.id === product.id

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import Navbar1 from "../Navbar/Navbar1";
 import { Api } from "../commonapi/api";
 import ProductCard from "./ProductCard";

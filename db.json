@@ -553,6 +553,88 @@
           "isNew": "new"
         }
       ]
+    },
+    {
+      "id": "6558",
+      "username": "shyam",
+      "email": "shyam@gmail.com",
+      "password": "shyam@gmail.com",
+      "role": "user",
+      "blocked": false,
+      "cart": [
+        {
+          "id": "1",
+          "name": "Nike SB",
+          "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/9f9fe870-473f-4eab-bd5f-b3f89735556c/NIKE+SB+DUNK+LOW+PRO.png",
+          "image1": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b597e2af-441b-4877-aa94-d086f65e22f4/NIKE+SB+DUNK+LOW+PRO.png",
+          "image2": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/1f6419a7-087e-40e0-89cf-86a7f3dbef06/NIKE+SB+DUNK+LOW+PRO.png",
+          "image3": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a2db8c5d-932c-4464-91f3-f6aca7ecec79/NIKE+SB+DUNK+LOW+PRO.png",
+          "price": "9599",
+          "category": "Men",
+          "description": "Nike SB Dunk Low Pro Skate Shoe",
+          "stock": "Available",
+          "quantity": 1,
+          "isNew": "new",
+          "brand": "Nike"
+        }
+      ],
+      "wishlist": [
+        {
+          "id": "1",
+          "name": "Nike SB",
+          "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/9f9fe870-473f-4eab-bd5f-b3f89735556c/NIKE+SB+DUNK+LOW+PRO.png",
+          "image1": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b597e2af-441b-4877-aa94-d086f65e22f4/NIKE+SB+DUNK+LOW+PRO.png",
+          "image2": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/1f6419a7-087e-40e0-89cf-86a7f3dbef06/NIKE+SB+DUNK+LOW+PRO.png",
+          "image3": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a2db8c5d-932c-4464-91f3-f6aca7ecec79/NIKE+SB+DUNK+LOW+PRO.png",
+          "price": "9599",
+          "category": "Men",
+          "description": "Nike SB Dunk Low Pro Skate Shoe",
+          "stock": "Available",
+          "quantity": "5",
+          "isNew": "new",
+          "brand": "Nike"
+        }
+      ],
+      "orders": [
+        {
+          "id": 1759988237427,
+          "date": "10/9/2025, 11:07:17 AM",
+          "items": [
+            {
+              "id": "1",
+              "name": "Nike SB",
+              "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/9f9fe870-473f-4eab-bd5f-b3f89735556c/NIKE+SB+DUNK+LOW+PRO.png",
+              "image1": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b597e2af-441b-4877-aa94-d086f65e22f4/NIKE+SB+DUNK+LOW+PRO.png",
+              "image2": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/1f6419a7-087e-40e0-89cf-86a7f3dbef06/NIKE+SB+DUNK+LOW+PRO.png",
+              "image3": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a2db8c5d-932c-4464-91f3-f6aca7ecec79/NIKE+SB+DUNK+LOW+PRO.png",
+              "price": "9599",
+              "category": "Men",
+              "description": "Nike SB Dunk Low Pro Skate Shoe",
+              "stock": "Available",
+              "quantity": 1,
+              "isNew": "new",
+              "brand": "Nike"
+            },
+            {
+              "id": "3",
+              "name": "Nike Dunk NextNature",
+              "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a5f788d9-208d-47f5-a90a-6e331cd6acbf/W+NIKE+DUNK+LOW+NEXT+NATURE.png",
+              "image1": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b7749f8a-2e8f-41d4-bc87-577555eb6b49/W+NIKE+DUNK+LOW+NEXT+NATURE.png",
+              "image2": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c9f111a3-7b98-439c-b607-3213daf3feac/W+NIKE+DUNK+LOW+NEXT+NATURE.png",
+              "image3": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/143c3087-0f60-48d7-8d07-5655e62fc72b/W+NIKE+DUNK+LOW+NEXT+NATURE.png",
+              "price": 8295,
+              "category": "Women",
+              "description": "Sustainable Materials Nike Dunk Low Next Nature",
+              "stock": "Available",
+              "quantity": 1,
+              "isNew": "new",
+              "brand": "Nike"
+            }
+          ],
+          "total": 17894,
+          "status": "pending"
+        }
+      ]
     }
   ],
   "products": [
